@@ -296,3 +296,11 @@ Write a markdown image, e.g., `![Alt text description](./path/in/here.jpg)`, whi
 2. We won't require any peer responses yet, since we're still getting the hang of git/Github. But, in the future, some chapters will include a peer response.
 3. Submit the PR link in Moodle, when you're ready.
     <p class="warning">Make sure that your repo is set to being Public.</p>
+
+## Practice In Class
+
+1. List 1
+    *  sublist 1
+2. List 2
+3. List 3
+4. List 4
