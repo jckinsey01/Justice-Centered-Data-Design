@@ -186,10 +186,12 @@ There are other conventions and rules, but we don't need to belabor them right n
     </video>
 
 ```javascript
-// Convert this into a multiline comment
-// that includes your name, date,
-// and top 3 favorite foods, where
-// each set of info should be on a new line.
+/* Josephine Kinsey
+* August 26th 2025
+* Pasta
+* Saag Paneer
+*Cookies
+*/
 
 /**
  * 1. Replace the value in-between the
@@ -205,8 +207,8 @@ There are other conventions and rules, but we don't need to belabor them right n
  *    that will make sure each favorite food is
  *    logged to the correct place in the console.
 **/
-___ _faveFood1_ = "Enter_#1_Favorite_Food_Here"
-___ _faveFood2_ = "Enter_#2_Favorite_Food_Here"
+___ pasta = "Pasta"
+___ saagPaneer = "Saag Paneer"
 
 console.log(
   "Ok, so y'all know that my #1 favorite food is ",
