@@ -62,8 +62,37 @@ Primitives enable you to perform fundamental data operations.
 3. Print them all to the console with `console.log()`.
 4. Check your work, as you go, by opening the browser console with the **Inspect Element** tool.
 
-```javascript
+```js
 // Write your code in here
+let faveMovie = "Sorry, Baby"
+let moviesAMonth = 12
+const movieCost = 0.00
+let moviesAreBad = false
+let moviesAreFun = true
+let beaverCreek = "bad theatre"
+beaverCreek = null
+let popcorn
+let diffMovieRatings = {
+  good: "4 stars!",
+  bad: "no stars!",
+}
+
+// Assign new property to object
+diffMovieRatings.excited = "What a great movie!"
+
+// Both Output: "Wasssssup!"
+console.log(diffMovieRatings['excited'])
+console.log(diffMovieRatings.excited)
+console.log(
+  "ok so everyone knows that my favorite movie is ", faveMovie ,
+  "and It was one of my ", moviesAMonth ,
+  "that I pay ", movieCost ,"to go watch."
+)
+console.log(
+  "my favorite place to watch movies is ", beaverCreek , "it's such a quality theatre!"
+)
+console.log(
+diffMovieRatings);
 ```
 
 ## Submission
