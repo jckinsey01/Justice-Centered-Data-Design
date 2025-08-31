@@ -377,8 +377,18 @@ let person1 = {
 let person1 = {
   profession: "married"
 }
-
-// Your code here
+if (person1['profession'] == "married") {
+  console.log('Person is married.');
+}
+else if (person1['profession'] == "laborer" ) {
+  console.log('Person is a laborer.');
+}
+else if (person1['profession'] == "widow") {
+  console.log('Person is a widow.');
+}
+else {
+  console.log('Person has unknown profession.');
+}
 ```
 
 ### E8.1 Change to laborer
