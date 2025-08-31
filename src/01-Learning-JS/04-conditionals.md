@@ -304,7 +304,7 @@ let childrenTotal = {
   person2: 2,
   person3: 0,
 }
-if (childrenTotal[person1] != 0)
+if (childrenTotal['person1'] != 0)
   console.log("Person has children.");
 ```
 
@@ -335,7 +335,17 @@ if (childrenTotal['person2']) {
 ```
 
 ```js
-// Your code here
+let childrenTotal = {
+  person1: 1,
+  person2: 2,
+  person3: 0,
+}
+if (childrenTotal['person1'] != 0) {
+  console.log("Person has children.");
+}
+if (childrenTotal['person2'] != 0) {
+  console.log("Person has children.");
+}
 ```
 
 ## E8
