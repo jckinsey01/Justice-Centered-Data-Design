@@ -151,21 +151,26 @@ If you review the String, you will notice how there are section breaks represent
     </div>
 4. In the fourth codeblock, output the new variable, `vonnegutNoSBDQ`, to verify if it worked.
 
-```javascript
-// Convert me to a js block and complete #1
+```js
+let vonnegutNoSB = vonnegut.replaceAll("       *       *       *       *       *", "");
+```
+```js
+console.log(vonnegutNoSB);
+```
+```js
+let vonnegutClean = vonnegutNoSB
+.replaceAll("\"", "")
+.replaceAll("/'", "")
+.replaceAll(",", "")
+.replaceAll(".", "")
+.replaceAll("?", "")
+.replaceAll(";", "")
+.replaceAll("--"," ");
 ```
 
-```javascript
-// Convert me to a js block and complete #2
-```
-
-```javascript
-// Convert me to a js block and complete #3
-```
-
-```javascript
+```js
 // Convert me to output the grand finale!
-vonnegutNoSBDQ
+console.log(vonnegutClean);
 ```
 
 ### E3. Same thing, but better method with a for loop
@@ -176,12 +181,19 @@ Ok, those chains were ridiculous, right? Below, complete the same outcome, but u
   Put those desired marks to replace in an Array. You will also need to write a conditional statement to handle the <code>--</code> differently.
 </p>
 
-```javascript
+```js
 // Convert me and use a for loop to remove all desired punctuation
+const vonnegutCharacters = ["\"", "/'", ".", ",", "?", ";", "--"];
+let vonnegutNoPuncs = vonnegutNoSB;
+for (const char of vonnegutCharacters){
+  const replacement = char === "--" ? " " : "";
+  vonnegutNoPuncs = vonnegutNoPuncs.replaceAll (char, replacement);
+}
 ```
 
-```javascript
+```js
 // Convert me and output the new string, vonnegutNoPuncs, here
+console.log(vonnegutNoPuncs);
 ```
 
 ### E4. Split the String into an Array of Strings
