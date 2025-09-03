@@ -202,12 +202,13 @@ Sometimes, we need to isolate parts of a text for analysis by splitting it into 
 
 Create an array of strings of Vonnegut's story as a new variable called `vonnSplit`. Do so by splitting the newly cleaned String, `vonnegutNoPuncs`, with an empty single space (`" "`).
 
-```javascript
-// Convert me to a js block and complete the exercise
+```js
+const vonnSplit = vonnegutNoPuncs.split(" ");
 ```
 
-```javascript
+```js
 // Convert me to a js block and output `vonnSplit`
+console.log(vonnSplit);
 ```
 
 ### E5. Create array of all hyphenated words
