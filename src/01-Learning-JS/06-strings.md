@@ -129,8 +129,12 @@ vonnegut
 
 Let's start simple. Output the length of the String, `vonnegut`, in a `js` codeblock below.
 
-```javascript
-// Convert me to a js block
+```js
+let vonnegutLength = vonnegut.length;
+```
+
+```js
+console.log(vonnegutLength);
 ```
 
 ### E2. Replace parts of a String
