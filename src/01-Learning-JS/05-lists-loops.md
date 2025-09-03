@@ -392,12 +392,12 @@ professions
 
 For this first exercise, I'll provide you with the basic structure:
 
-```javascript
+```js
 // Declare new and freshly empty array in which to push new items
 let lessProfessions = []
-for () {
-  if () {
-    // Do something in here
+for (const job in professions) {
+  if (job != 1) {
+   lessProfessions.push(professions[job])
   }
 }
 ```
@@ -406,9 +406,9 @@ for () {
   Interactive output of the array of <code>lessProfessions</code>
 </p>
 
-```javascript
+```js
 // Convert me to output `lessProfessions`
-lessProfessions
+console.log(lessProfessions)
 ```
 
 ### E2. Push/add a new profession to an array
