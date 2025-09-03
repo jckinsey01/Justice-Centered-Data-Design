@@ -436,10 +436,14 @@ moreProfessions
 
 **Goal**: Make a `for` loop that considers each item in the `professions` array and logs "Person's profession is ___", which "___" should be the profession from the array.
 
-```javascript
-// Convert and code here
+```js
+for (const name of professions) {
+  console.log("Person's profession is " + name)
+}
 ```
-
+```js
+console.log(professions)
+```
 ### E4. More conditional pushing with `for...of`
 
 **Goal**: Create a new array and populate, i.e., push all items from the `childStatus` array, except for any empty Strings. Use a `for...of` loop to do so.
