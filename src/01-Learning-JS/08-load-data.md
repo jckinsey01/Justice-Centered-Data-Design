@@ -65,6 +65,7 @@ In this project, check out the `/src/data/events.json` file, which is a small ex
 </p>
 
 **RESPONSE**: Write your response here.
+
 It is significantly easier to read the way the JSON file is writen, and the column names are writwn before a ":" within quotation marks, each column is separated by a coma.
 
 ## 1.8.2 Framework's FileAttachment()
@@ -221,7 +222,14 @@ Goal: Demonstrate your understanding of the CSV file format by creating a mini C
 
 Use the empty codeblock below.
 
-```
+```js
+book_title,author,genre,
+beartown,fredrik_backman,drama
+pride_and_prejudice,jane_austen,romance
+nornmal_people,sally_rooney,romance
+the_soul_of_an_octopus,sy_montgomery,creative_non-fiction
+dont_even_think_about_it,george_marshall,psychology
+
 ```
 
 ### E2. Load a CSV file
