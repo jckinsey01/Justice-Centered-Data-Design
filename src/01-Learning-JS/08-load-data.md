@@ -65,6 +65,7 @@ In this project, check out the `/src/data/events.json` file, which is a small ex
 </p>
 
 **RESPONSE**: Write your response here.
+It is significantly easier to read the way the JSON file is writen, and the column names are writwn before a ":" within quotation marks, each column is separated by a coma.
 
 ## 1.8.2 Framework's FileAttachment()
 
