@@ -95,7 +95,7 @@ Use D3.js `FileAttachment()` method below in VS Code. Remember that you'll need 
 <!-- Attach sampled NC voter data -->
 ```js
 // Convert to `js` codeblock and attach sampled NC voter data file: nc_absentee_mail_2024_n20000.csv
-FileAttachment("./../data/nc-voters/nc_absentee_mail_2024_n20000.csv").csv({typed: true})
+const ncVoters = FileAttachment("./../data/nc-voters/nc_absentee_mail_2024_n20000.csv").csv({typed: true})
 ```
 
 ## E2. Convert String dates to Date() objects
@@ -110,8 +110,10 @@ First outline your procedure with steps below.
 
 Now, code!
 
-```javascript
-// Your function code goes here
+```js
+const changeDateStrings = () => {
+
+}
 ```
 
 ```javascript
