@@ -955,12 +955,23 @@ nc24VotersRollUpPartyAndRace.get("DEM").get("F") // Yields 4149
   Be sure to write your code in a manner aligned with how I break down the process above.
 </p>
 
-```javascript
-// Your code goes here
+```js
+let nc2024SampleVoterBallotRace = nc2024SampleVoters.map(
+  (voter) => {
+    if (voter.ballot_rtn_status !== null) {
+    const ballotStatus = voter.ballot_rtn_status;
+    const race = voter.race;
+    return  {ballotStatus, race};
+    } else {
+      return undefined;
+    }
+
+  }
+).filter(voter => voter != undefined);
 ```
 
-```javascript
-// Your new variable here
+```js
+console.log(nc2024SampleVoterBallotRace);
 ```
 
 ### E2. Group NC Voters By the Ballot Sent Date as an InternMap()
