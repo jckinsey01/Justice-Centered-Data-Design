@@ -989,7 +989,7 @@ console.log(nc2024SampleVoterBallotRace);
 
 ```js
 // Your code goes here
-
+let 
 ```
 
 ```javascript
@@ -1013,6 +1013,8 @@ console.log(nc2024SampleVoterBallotRace);
 </div>
 
 ```js
+let ageRanges [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+
 
 ```
 
