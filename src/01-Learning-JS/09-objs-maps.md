@@ -987,8 +987,9 @@ console.log(nc2024SampleVoterBallotRace);
   Be sure to write your code in a manner aligned with how I break down the process above.
 </p>
 
-```javascript
+```js
 // Your code goes here
+
 ```
 
 ```javascript
@@ -1011,8 +1012,8 @@ console.log(nc2024SampleVoterBallotRace);
   </ol>
 </div>
 
-```javascript
-// Your code goes here
+```js
+
 ```
 
 ```javascript
