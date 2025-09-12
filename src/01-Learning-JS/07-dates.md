@@ -371,12 +371,17 @@ Here are some tips to consider as you complete this exercise.
 <p class="tip"><strong>Isolate interested parts of data</strong>: If dates are important to the inquiry, remember that the dates are stored as Strings in the following format: <code>"10/24/2024"</code>, i.e.,<code>"mm/dd/YYYY"</code>.</p>
 
 <!-- E1 -->
-```javascript
+```js
 // Convert and code here
+let ballotsWithDataObjs = nc2024SampleVoters.map(
+  (ballot) =>
+  {ballot.ballot_req_dt_obj = utcParse("%d%m%Y")
+  return ballot
+  }
+)
 ```
 
-```javascript
-// Convert and output
+```js
 ballotsWithDateObjs
 ```
 
