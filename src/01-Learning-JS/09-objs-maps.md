@@ -11,14 +11,14 @@ Remember, before you start anything else, always follow this GH methodological w
 
 In the previous lessons, we used individual variables to represent some of the demographic information about the 19th century Irish immigrants featured in the [Bellevue Almshouse data](https://gih-nyc.org/almshouse/the-almshouse-records/), such as names.
 
-```javascript
+```js
 let person1Name = 'Marry Gallagher'
 let person2Name = 'John Sanin'
 ```
 
 We learned that Array lists help us create a *collection* of values rather than individual variables.
 
-```javascript
+```js
 let names = ['Mary Gallagher', 'John Sanin', 'Anthony Clark', 'Margaret Farrell']
 ```
 
@@ -68,7 +68,7 @@ Now, let's learn about some JS-specific data types that you will use frequently.
 
 A common structure used to create a collection of objects is to push them into an Array `[]`. Indeed, recall how when you load data with Observable Framework's `FileAttachment` function, it will automatically convert it into an Array of Objects:
 
-```javascript
+```js
 [
   {uniqKey: value, ...},
   {uniqKey: value, ...},
@@ -287,7 +287,7 @@ Let's use the `nc2024SampleVoters` Array of objects to learn about looping throu
 In JS, one of the current best practices is to use the `for...of` loop. This looping method helps you define a meaningful variable to use within the scope of the loop. In this case, each object in the array represents one voter, so it makes sense to name the variable as such.
 
 <!-- for...of example -->
-```javascript
+```js
 for (const voter of nc2024SampleVoters) {
   console.log(
     "Voter number",
@@ -402,7 +402,7 @@ let nc2024SampleVotersUpdate = [
 This voter data has lots of dates, which we learned how to process and change with parsers and formatters from D3.js/Observable. Let's In the codeblock below with a new version of the data assigned to the variable `nc2024SampleVotersUpdate`.
 
 <!-- Rendered for...of nc2024SampleVotersUpdate -->
-```javascript
+```js
 for (const voter of nc2024SampleVotersUpdate) {
   // Create a Date object from the String value
   let voterReqDate = parseDateSlash(voter.ballot_req_dt)
@@ -479,7 +479,7 @@ First, here's how `.map()` works. Think of `.map()` as a new expression that con
 
 > `(item) => { do something with item in here ... }`
 
-```javascript
+```js
 // .map() expects a Function as a parameter
 iterableData.map(
   (itemAsParam) => {
@@ -492,7 +492,7 @@ iterableData.map(
 Here's how it looks for our example of isolating requested ballot months for each voter's county.
 
 <!-- Rendered map() of ballotRequestMonthsPerCounty -->
-```javascript
+```js
 let ballotRequestMonthsPerCounty = nc2024SampleVotersUpdate.map(
   (voter) => {
     // Create a Date object from the String value
@@ -567,7 +567,7 @@ All values will be keyed uniquely, so it takes a key as a parameter to return th
 
 ##### Example `.get()` method
 
-```javascript
+```js
 const myMap = new Map()
 myMap.set("key", "value")
 
@@ -579,7 +579,7 @@ Sometimes you need to add new keyed values or update an existing keyed value in 
 
 ##### Example `.set()` method
 
-```javascript
+```js
 const myMap = new Map()
 
 // Add new elements to the map
@@ -595,7 +595,7 @@ myMap.set("key", "updatedValue")
 
 Sometimes you need to check if a key exists. Do so with .has().
 
-```javascript
+```js
 const myMap = new Map()
 myMap.set("key", "value")
 
@@ -607,7 +607,7 @@ console.log(myMap.has("keyNotInMap")) // Returns Boolean of false
 
 You will definitely need to iterate through maps for multiple reasons. Use the `for...of` looping method to do so.
 
-```javascript
+```js
 const myMap = new Map()
 myMap.set(0, "zero")
 myMap.set(1, "one")
@@ -649,7 +649,7 @@ For example, if your data set is at the individual voter level, like `nc2024Samp
 Before we move forward with this example, let's break that structure down in a simplified fashion. Here's the basic structure and pieces:
 
 <!-- EXAMPLE .groupBy() structure -->
-```javascript
+```js
 Map.groupBy(arrayOfObjectsHere,
   ({parameterHere, anotherParamAsNeeded}) => {
     // Function will go through each object/'row' in the data,
@@ -661,7 +661,7 @@ Map.groupBy(arrayOfObjectsHere,
 Still tricky to understand. No problem. Let's review how that looks like in practice with our running `nc2024SampleVotersUpdate` array of objects:
 
 <!-- EXAMPLE .groupBy() in practice -->
-```javascript
+```js
 // Create and assign the groupBy result to a new variable
 let ncVotersGroupedByParty = Map.groupBy(nc2024SampleVotersUpdate,
   ({ballot_request_party}) => {
@@ -710,7 +710,7 @@ In addition to JS's built-in data structures, like Arrays, Object Arrays, and Ma
 
 The main reason why we should learn how to use D3's InternMaps over the regular JS Map has to do with using the Date object as keys to group our data. For example, if you use dates as keys in a JavaScript Map, you may be surprised that it won’t work as you expect. Indeed, if you use `Date()` objects as keys in a `Map()`, JS will not always respect the one unique key per collection rule. Let's see what happens in the example below:
 
-```javascript
+```js
 // Example JS Map() with Date() objects as keys
 let vanillaJsDateMap = new Map([
   [new Date(Date.UTC(2001, 0, 1)), "red"],
@@ -733,7 +733,7 @@ Akin to Object Arrays, D3.js has the InternMap. ***Interning*** is specific meth
 
 For example, the below InternMap considers two Date instances representing the same moment to be equal, so the environment will only store the first instance, i.e., replace the `"red"` entry with subsequent `"green"` entry. Print that out to the console and see for yourself.
 
-```javascript
+```js
 const exampleInternMap = new InternMap([
   [new Date(Date.UTC(2001, 0, 1)), "red"],
   [new Date(Date.UTC(2001, 0, 1)), "green"] // replaces previous entry
@@ -758,7 +758,7 @@ Ok, Date() object behavior is one big reason to use InternMaps. Additionally, In
 
 For more proof, check out both of their respective `prototype` functions in the web console. Convert this `javascript` codeblock to an executable `js` codeblock and see for yourself:
 
-```javascript
+```js
 let ogJsMap = new Map()
 let d3InternMap = new InternMap()
 console.log(
@@ -809,7 +809,7 @@ D3's `group()` accepts mainly two parameters:
 
 Here's the expression:
 
-```javascript
+```js
 // Basic structure of expression
 const outputInternMap = d3.group(
   // First param == array of objects
@@ -897,7 +897,7 @@ Sometimes you just need to compute some values about your data, rather than pres
 `d3.rollup` first groups the data—just like `.group()`. Yet, `rollup` then **reduces** the specified iterable of values into an InternMap from the provided key to reduced value. For example, let's say we just want to count the number of voters in a particular group? Rollup to the rescue!
 
 <!-- Render party>gender rollup -->
-```javascript
+```js
 let nc24VotersRollUpPartyAndRace = d3.rollup(
   // Input array of objects
   nc2024SampledVoters,
@@ -932,7 +932,7 @@ nc24VotersRollUpPartyAndRace
 
 Here's how to get the count of absentee voters whose party is `"DEM"` and whose gender is `"F"`:
 
-```javascript
+```js
 nc24VotersRollUpPartyAndRace.get("DEM").get("F") // Yields 4149
 ```
 
@@ -988,31 +988,31 @@ console.log(nc2024SampleVoterBallotRace);
 </p>
 
 ```js
-// create d3 date parser
-// const parseDate = d3.utcParse("%m/%d/%y")
-// const ncBallotsUpdated = nc2024SampleVoters.map(
-//   (ballot) => {
-    // add new date object from string: "9/24/24"
-    // ballot.ballot_send_dt_obj = parseDate(ballot.ballot_send_dt)
-    // return ballot 
-//   }
-// ) 
+create d3 date parser
+const parseDate = d3.utcParse("%m/%d/%y")
+const ncBallotsUpdated = nc2024SampleVoters.map(
+  (ballot) => {
+    add new date object from string: "9/24/24"
+    ballot.ballot_send_dt_obj = parseDate(ballot.ballot_send_dt)
+    return ballot 
+  }
+) 
 ```
 
 ```js
-// ncBallotsUpdated
-// grouping data as an internmap()
-// const ballotsByDate = d3.group(
- // array pf objects
-//  ncBallotsUpdated, 
- // d = rows of dates
-//  (d) => d.ballot_send_dt_obj,
-// )
+ncBallotsUpdated
+grouping data as an internmap()
+const ballotsByDate = d3.group(
+ array pf objects
+ ncBallotsUpdated, 
+ d = rows of dates
+ (d) => d.ballot_send_dt_obj,
+)
 ```
 
-<!-- ```js
+```js
 ballotsByDate
-``` -->
+```
 
 ### E3. Group NC Voters By Age Range as an InternMap()
 
