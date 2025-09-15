@@ -649,7 +649,7 @@ For example, if your data set is at the individual voter level, like `nc2024Samp
 Before we move forward with this example, let's break that structure down in a simplified fashion. Here's the basic structure and pieces:
 
 <!-- EXAMPLE .groupBy() structure -->
-```js
+```javascript
 Map.groupBy(arrayOfObjectsHere,
   ({parameterHere, anotherParamAsNeeded}) => {
     // Function will go through each object/'row' in the data,
@@ -809,7 +809,7 @@ D3's `group()` accepts mainly two parameters:
 
 Here's the expression:
 
-```js
+```javascript
 // Basic structure of expression
 const outputInternMap = d3.group(
   // First param == array of objects
@@ -897,7 +897,7 @@ Sometimes you just need to compute some values about your data, rather than pres
 `d3.rollup` first groups the data—just like `.group()`. Yet, `rollup` then **reduces** the specified iterable of values into an InternMap from the provided key to reduced value. For example, let's say we just want to count the number of voters in a particular group? Rollup to the rescue!
 
 <!-- Render party>gender rollup -->
-```js
+```javascript
 let nc24VotersRollUpPartyAndRace = d3.rollup(
   // Input array of objects
   nc2024SampledVoters,
@@ -988,11 +988,11 @@ console.log(nc2024SampleVoterBallotRace);
 </p>
 
 ```js
-create d3 date parser
+// create d3 date parser
 const parseDate = d3.utcParse("%m/%d/%y")
 const ncBallotsUpdated = nc2024SampleVoters.map(
   (ballot) => {
-    add new date object from string: "9/24/24"
+    // add new date object from string: "9/24/24"
     ballot.ballot_send_dt_obj = parseDate(ballot.ballot_send_dt)
     return ballot 
   }
@@ -1000,12 +1000,11 @@ const ncBallotsUpdated = nc2024SampleVoters.map(
 ```
 
 ```js
-ncBallotsUpdated
-grouping data as an internmap()
+// grouping data as an internmap()
 const ballotsByDate = d3.group(
- array pf objects
+//  array pf objects
  ncBallotsUpdated, 
- d = rows of dates
+  //  d = rows of dates
  (d) => d.ballot_send_dt_obj,
 )
 ```
