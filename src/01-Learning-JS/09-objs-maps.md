@@ -988,13 +988,31 @@ console.log(nc2024SampleVoterBallotRace);
 </p>
 
 ```js
-// Your code goes here
-let 
+// create d3 date parser
+// const parseDate = d3.utcParse("%m/%d/%y")
+// const ncBallotsUpdated = nc2024SampleVoters.map(
+//   (ballot) => {
+    // add new date object from string: "9/24/24"
+    // ballot.ballot_send_dt_obj = parseDate(ballot.ballot_send_dt)
+    // return ballot 
+//   }
+// ) 
 ```
 
-```javascript
-// Your grouped variable here
+```js
+// ncBallotsUpdated
+// grouping data as an internmap()
+// const ballotsByDate = d3.group(
+ // array pf objects
+//  ncBallotsUpdated, 
+ // d = rows of dates
+//  (d) => d.ballot_send_dt_obj,
+// )
 ```
+
+<!-- ```js
+ballotsByDate
+``` -->
 
 ### E3. Group NC Voters By Age Range as an InternMap()
 
