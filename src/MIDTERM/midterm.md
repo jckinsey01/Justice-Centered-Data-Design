@@ -4,7 +4,7 @@
 
 ## Overview
 
-I chose the "pollution" data set because of my interests in environmental science and science communication. I think that working with this dataset could give me practice for working with similar data sets in the future, if that kind of work comes up. I also think that, on a broader scale, pollution is an important topic to discuss, especially for big cities because of the unfair impacts it has on certain communities. Addtionally, pollution is an important aspect of public health, which has rapidly become more politicized and divisive in recent years. 
+I chose the "pollution" dataset because of my interests in environmental science and science communication. I think that working with this dataset could give me practice for working with similar data sets in the future, if that kind of work comes up. I also think that, on a broader scale, pollution is an important topic to discuss, especially for big cities because of the unfair impacts it has on certain communities. Addtionally, pollution is an important aspect of public health, which has rapidly become more politicized and divisive in recent years. 
 
 <!-- The following given executable js codeblock that imports the one set of D3.js
 modules that you will need to use for Date() object work. You will need to
@@ -52,6 +52,9 @@ date data in any new ways.
 
 Again, be sure to output your newly transformed data in executable codeblocks
 for easier verification and reviewing. -->
+It is important to have dates that can be used within the dataset, as it can help us discern seasonal and yearly patterns of pollution. For example, maybe pollution levels skyrocket between November-January because people travel for the holidays, and without dates we may not see this trend.
+
+Below is an example data point to verify that the dates were converted appropriately and to show what values are within each object.
 
 ```js
 import {utcParse,utcFormat} from "d3-time-format";
@@ -70,7 +73,7 @@ testObject
 
 ## Grouping #1 - Name of grouping here
 
-Explain your plan to group the data in a particular way here, before you do so.
+<!-- Explain your plan to group the data in a particular way here, before you do so.
 At least one of the groupings should use some variation of D3's `.rollup()`, so
 you can count particular grouped properties.
 
@@ -81,10 +84,19 @@ Provide a procedure of your grouping plan in an ordered list before the codebloc
 3. ...
 
 Again, be sure to output your newly transformed data in executable codeblocks
-for easier verification and reviewing.
+for easier verification and reviewing. -->
+Here, I intend to group the data based on location. I'll be doing this for both groupings, but here it will be a d3.rollup so groups can be nested within larger groups. I will be doing a grouping that begins at the highest level with the "State" value, then "County" value, then lastly the "City" value. This will will allow me tp keep the data organized so I can easily navigate between what level of specificity I want.
+
+Here is my procedure for creating code to chieve this:
+
+1. Establish a "js codeblock".
+2. Create a variable for the name of the resulting d3.rollup internmap.
+3. Create the d3.rollup().
+4. Make the skeleton of the d3.rollup.
+5. Enter in the key/property I want to split the dataset into groupings of.
 
 ```js
-const ___Rollup = d3.rollup(
+const locationRussianDollInternMap = d3.rollup(
   pollutionData,
   (D)=> D.length,
   (d) => d.picksomething
