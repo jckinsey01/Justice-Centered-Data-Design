@@ -87,26 +87,29 @@ Again, be sure to output your newly transformed data in executable codeblocks
 for easier verification and reviewing. -->
 Here, I intend to group the data based on location. I'll be doing this for both groupings, but here it will be a d3.rollup so groups can be nested within larger groups. I will be doing a grouping that begins at the highest level with the "State" value, then "County" value, then lastly the "City" value. This will will allow me tp keep the data organized so I can easily navigate between what level of specificity I want.
 
-Here is my procedure for creating code to chieve this:
+Here is my procedure for creating code to achieve this:
 
 1. Establish a "js codeblock".
 2. Create a variable for the name of the resulting d3.rollup internmap.
 3. Create the d3.rollup().
 4. Make the skeleton of the d3.rollup.
-5. Enter in the key/property I want to split the dataset into groupings of.
+5. Enter in the key/property I want to split the dataset into groupings of. In this case, those are the "State" grouping, and within that the "County" grouping
 
 ```js
 const locationRussianDollInternMap = d3.rollup(
   pollutionData,
   (D)=> D.length,
-  (d) => d.picksomething
-    (d) => d.picksomething within the other something
+  (d) => d.State,
+    (d) => d.County,
 )
+```
+```js
+locationRussianDollInternMap
 ```
 
 ## Grouping #2 - Name of grouping here
 
-Explain your plan to group the data in a particular way here, before you do so.
+<!-- Explain your plan to group the data in a particular way here, before you do so.
 At least one of the groupings should use some variation of D3's `.rollup()`, so
 you can count particular grouped properties.
 
@@ -117,8 +120,95 @@ Provide a procedure of your grouping plan in an ordered list before the codebloc
 3. ...
 
 Again, be sure to output your newly transformed data in executable codeblocks
-for easier verification and reviewing.
+for easier verification and reviewing. -->
 
+1. Establish a "js codeblock".
+
+```js
+const cities = pollutionData.map(
+  (day) => {
+    return day.city
+  }
+)
+```
+
+```js
+const uniqCitiesSet = new Set(cities)
+const uniqCities = []
+uniqCities.forEach(
+  (city) => {
+    uniqCities.push(city)
+  }
+)
+  console.log(uniqCities);
+```
+```js
+uniqCities
+```
+```js
+const coastMetaData = {
+  east: [
+    Atlanta
+    Baltimore
+    Boston
+    Brooklyn
+    Charlotte
+    Columbia (South Carolina)
+    Hartford
+    Jacksonville
+    Manhattan
+    Miami
+    Philadelphia
+    Providence
+    Raleigh
+    Richmond
+    Staten Island
+    Tallahassee
+  ],
+  west: {
+    Albuquerque
+    Austin
+    Boise
+    Denver
+    El Paso
+    Fresno
+    Honolulu
+    Las Vegas
+    Los Angeles
+    Oakland
+    Phoenix
+    Portland (Oregon)
+    Sacramento
+    Salem (Oregon)
+    Salt Lake City
+    San Diego
+    San Francisco
+    San Jose
+    Seattle
+    Tucson
+  },
+  Central: [
+    Chicago
+    Columbus (Ohio)
+    Dallas
+    Detroit
+    Fort Worth
+    Houston
+    Indianapolis
+    Jackson (Mississippi)
+    Little Rock
+    Madison
+    Memphis
+    Milwaukee
+    Nashville
+    Oklahoma City
+    Omaha
+    Saint Paul
+    San Antonio
+    Springfield (Illinois)
+  ],
+  }
+```
 ## Reflection
 
 Use the following prompt to guide your reflection about your data work:
