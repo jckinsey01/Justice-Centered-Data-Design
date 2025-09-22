@@ -229,7 +229,7 @@ Use the PR-TEMPLATE prompts to reflect on the midterm experience. -->
 ### Insights
 
 1. **The "d3.rollup" was a great way of breaking up and understanding data**: Th "d3.rollup" method helps to break down data into a russian-doll style categorization, which in my case was good for breaking cities up geographically.
-2. **I feel good about being able to draw some conslusions from the way I sorted the data**: I think that the way I sorted the data will result in me being able to draw conclusiosn about the data in terms of where pollution is felt, to what level, and in what way based on geographical areas.
+2. **I feel good about being able to draw some conclusions from the way I sorted the data**: I think that the way I sorted the data will result in me being able to draw conclusions about the data in terms of where pollution is felt, to what level, and in what way based on geographical areas.
 
 ### Questions
 
