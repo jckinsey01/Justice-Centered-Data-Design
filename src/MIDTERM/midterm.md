@@ -122,7 +122,16 @@ Provide a procedure of your grouping plan in an ordered list before the codebloc
 Again, be sure to output your newly transformed data in executable codeblocks
 for easier verification and reviewing. -->
 
+For my next hrouping, I'll sort the objects in the data set by region, "East", "West" and "Central". This can help me see what regions may have more or less pollution, pollution from different pollutants, and potentially what regions have pollution due to what activity.
+
+The following is my procedure:
+
 1. Establish a "js codeblock".
+2. Create an array of cities.
+3. Create a unique set and list of cities
+4. Manually create xRef list of cities anmd coast
+5. ??
+
 
 ```js
 const cities = pollutionData.map(
@@ -148,73 +157,81 @@ uniqCities
 ```js
 const coastMetaData = {
   east: [
-    Atlanta
-    Baltimore
-    Boston
-    Brooklyn
-    Charlotte
-    Columbia (South Carolina)
-    Hartford
-    Jacksonville
-    Manhattan
-    Miami
-    Philadelphia
-    Providence
-    Raleigh
-    Richmond
-    Staten Island
-    Tallahassee
+   ' Atlanta',
+    'Baltimore',
+    'Boston',
+    'Brooklyn',
+    'Charlotte',
+    'Columbia (South Carolina)',
+    'Hartford',
+    'Jacksonville',
+    'Manhattan',
+    'Miami',
+    'Philadelphia',
+    'Providence',
+    'Raleigh',
+    'Richmond',
+    'Staten Island',
+    'Tallahassee',
   ],
-  west: {
-    Albuquerque
-    Austin
-    Boise
-    Denver
-    El Paso
-    Fresno
-    Honolulu
-    Las Vegas
-    Los Angeles
-    Oakland
-    Phoenix
-    Portland (Oregon)
-    Sacramento
-    Salem (Oregon)
-    Salt Lake City
-    San Diego
-    San Francisco
-    San Jose
-    Seattle
-    Tucson
-  },
+  west: [
+    'Albuquerque',
+    'Austin',
+    'Boise',
+    'Denver',
+    'El Paso',
+    'Fresno',
+    'Honolulu',
+    'Las Vegas',
+    'Los Angeles',
+    'Oakland',
+    'Phoenix',
+    'Portland (Oregon)',
+    'Sacramento',
+    'Salem (Oregon)',
+    'Salt Lake City',
+    'San Diego',
+    'San Francisco',
+    'San Jose',
+    'Seattle',
+    'Tucson',
+  ],
   Central: [
-    Chicago
-    Columbus (Ohio)
-    Dallas
-    Detroit
-    Fort Worth
-    Houston
-    Indianapolis
-    Jackson (Mississippi)
-    Little Rock
-    Madison
-    Memphis
-    Milwaukee
-    Nashville
-    Oklahoma City
-    Omaha
-    Saint Paul
-    San Antonio
-    Springfield (Illinois)
+    'Chicago',
+    'Columbus (Ohio)',
+    'Dallas',
+    'Detroit',
+    'Fort Worth',
+    'Houston',
+    'Indianapolis',
+    'Jackson (Mississippi)',
+    'Little Rock',
+    'Madison',
+    'Memphis',
+    'Milwaukee',
+    'Nashville',
+    'Oklahoma City',
+    'Omaha',
+    'Saint Paul',
+    'San Antonio',
+    'Springfield (Illinois)',
   ],
-  }
+  };
 ```
-## Reflection
+## Reflection -->
 
-Use the following prompt to guide your reflection about your data work:
+<!-- Use the following prompt to guide your reflection about your data work:
 "What 2-3 insights and 2-3 questions did you glean from your initial work
 with the dataset?"
 
-Use the PR-TEMPLATE prompts to reflect on the midterm experience.
+Use the PR-TEMPLATE prompts to reflect on the midterm experience. -->
 
-```
+### Insights
+
+1. **The "d3.rollup" was a great way of breaking up and understanding data**: Th "d3.rollup" method helps to break down data into a russian-doll style categorization, which in my case was good for breaking cities up geographically.
+2. **I feel good about being able to draw some conslusions from the way I sorted the data**: I think that the way I sorted the data will result in me being able to draw conclusiosn about the data in terms of where pollution is felt, to what level, and in what way based on geographical areas.
+
+### Questions
+
+1. **I couldn't finish my final grouping**: Based on instructions from Dr. Lindgren, I was able to get a good start, but I couldn't figure out the final piece of actually putting the data through the arrays I made. I will ask about this later and correct it before the final draft. 
+2. **I'm still working on intuitively knowing when to use what**: this will take a while I think, but I feel like this project helped some!
