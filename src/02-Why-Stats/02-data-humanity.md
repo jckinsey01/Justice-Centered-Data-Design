@@ -119,7 +119,7 @@ I think that this means that they are labels that reflect the person, rather tha
 
 **Question**: Guyan cites Foucault's idea about how "'visibility is a trap'" (p. 20 of the PDF). What does this expression mean, and why does Guyan draw parallels between Foucault's original use of it with issues of power and data? Be sure to illuminate your discussion with specific examples that Guyan uses in the book.
 
-This saying refers to how power can be enforced using the threat of surveillance. Here, Guyan uses this to mean that the increaed visibility on queer people does not mean their lives will improve, or that people using the datta will be interested in doing anything productive with it, he references a statement amde by Hammonds that visbility does not mean history has not been erased.
+This saying refers to how power can be enforced using the threat of surveillance. Here, Guyan uses this to mean that the increaed visibility on queer people does not mean their lives will improve, or that people using the datta will be interested in doing anything productive with it, he references a statement amde by Hammonds that visbility does not mean history has not been erased#.
 
 ## 3. Questions about "The topology of race"
 
