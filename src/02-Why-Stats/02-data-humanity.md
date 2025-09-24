@@ -62,7 +62,12 @@ The principles are:
 
 **Question**: What do D'Ignazio and Klein mean by issues of "false binaries and hidden hierarchies" (p. 3)? Then, explain how principles 3, 5, 6 and 7 each approach such issues.
 
-YOUR_RESPONSE_HERE
+"False binaries and hidden heirarchies" are instamces in which binaries are defined and used where they may not be necessary or even hide an actual issue. This can be used to perpetuate a heirarchical system. 
+
+* Principle 3: acknowledging and uplifting certain experices, emotions or expressions can help prevent researchers from falling into unnecessary binaries that hide certain groups and communities.
+* Principle 5: Similar to the above, inviting multiple perspectives on sex and gender expression allow for data to reflect that diversity.
+* Principle 6: Context is important to consider, because there are instances, such as the example with the male experience with Covi-19 being hidden, where it is important to utelize categorization or binaries, but it's important to be aware of when that os the case or whenthe opposite is true.
+* Principle 7: I find this principle particularly applicable to heriarchies, as hiding workers on whom companies and organizations depend can feed into heirarchies. Exposing the labor of all people can lessen the unfsir concentration of power.
 
 ## 2. Questions about Queer Data
 
@@ -70,33 +75,51 @@ YOUR_RESPONSE_HERE
 
 **Question**: Create a bulleted list of short excerpts and summary statements where Guyan defines "queer data" and "intersectional LGBTQ data" in the introduction. Be sure to accompany all excerpts and paraphrases with page number locations in the PDF.
 
-- "Short excerpt 1" (p. xx)
-- "Short paraphrase 1" (p. xx)
-- "Short excerpt 2" (p. xx)
-- "Short paraphrase 2" (p. xx)
-- ...
+- "Queer data is a tension. On one hand, it freezes in time and space particular ideas
+about what it means to identify as lesbian, gay, bisexual, trans and/or queer. It
+establishes these meanings as categories, which are fed into counting machines
+and used as the basis for decision-making. This construction and deployment of
+categories are at odds with the queering of data, which critically questions the foundations upon which these categories stand, the value granted to some identities
+above others and who actually benefits from the collection, analysis and use of data
+about LGBTQ people. Queer data is more than a study of individuals that sit outside
+the categories of heterosexual or cisgender. It is equally a brash, confrontational
+and in-your-face challenge to conventional understandings of how data and identities intersect - how people respond to queer data is either their problem or their
+wake-up call. As an approach to data and identities, queer data disrupts the binaries
+of male/female, heterosexual/homosexual and cis/trans and asks us to reconsider
+the notion that 'numbers speak for themselves'. When data captures the lives and
+experiences of LGBTQ people, numbers do not speak for themselves - they always
+speak for someone. As I will argue, decisions made about who to count, what to
+count and how to count are not value-neutral but bring to life a particular vision
+of the social world. 1 Queer data exposes the decisions made about data, from collection to its use for action, to ensure that data about LGBTQ people is used to construct a social world that values and improves the lives of LGBTQ people. " (p. 12)
+  - Queer data is the exploration and sharing of ideas about what it is to be queer, questions categories in which we put people (queer and not), analyzes data about the queer experience that's normally overlooked, an acceptance that numbers and data are more than just that and reflect real lives, and expose of decisions made about data, and a wake up call to toxic views of queerness and data. (p. 12)
+- " Queer Data expands on feminist, postcolonial and critical race scholarship to explore how, among LGBTQ
+individuals, those who stand to benefit from 'being counted' also risk engaging
+with technologies that might normalize categories and practices that hamper rather than help the wider LGBTQ population. " (p. 13)
+  - Queer data comes from other intersectional and refective schools of thought and theories, and it simulataneously attempts to allow people who otherwise not have their expericnes counted or documenyt be counted and documented, while also acknowledging the dangers of being counted or documented. (p. xx)
+- "Queer Data encourages researchers, practitioners and activists to think about data differently and ask critical questions such as 'Why do we collect data this way?', 'Whose interests does data serve?' and 'Why do we collect data at all?' Queer Data charts a practical path through this tension that acknowledges data's potential to recreate simplified, stereotypical and exclusionary rules but also operates as a tool to gather evidence, document inequality and bring about change. The conflictual ingredients of queer data therefore require researchers to adopt a mixed approach that elevates the stories of LGBTQ people but also exposes the constructed structures upon which all minority and majority identity characteristics stand. "(p. 14)
+  - Queer data challenges and asks questions about the collection, use, and organization of data.
 
 **Question**: Based on your list above, write your own movie tagline, i.e., a short and entertaining one-liner that tries to capture one of the main aspects of "queer data", and another tagline about "intersectional LGBTQ data."
 
-YOUR_TAGLINE_HERE
+Queer data  recognizes the failings of data and its missuse, while inviting those often mistreated by it and excluded from it to participate in it in a way that meets their needs.
 
 ### 2.2 Guyan's exigence for the book
 
 **Question**: Why did Guyan write this book? What was his exigence?
 
-YOUR_RESPONSE_HERE
+Guyan briefly mentions the 2022 Scotland census, which included the first official statistics of the size of the LGBTQ+ community in order to inform policy. It was optional and allowed a write-in-response. The report was writen around then, and he lives in and coducts research regarding queer people in the UK.
 
 ### 2.3 "Prescriptive" versus "descriptive"
 
 **Question**: What does Guyan mean when he labels terms like gender, sex, and sexuality as being descriptive—*not* prescriptive (see pp. 13-14 in particular)? Explain the differences between the two with an example from each of the terms.
 
-YOUR_RESPONSE_HERE
+I think that this means that they are labels that reflect the person, rather than make the person. One example the text gives is that ideas and expressions of gender vary depending on culture, being a "woman" doesn't mean the same exact thing across many cultures. Another example is how labels being descriptive and not prescriptive accounts for the reality of flexible and changing gender and sexual expression.
 
 ### 2.4 "'Visibility is a trap'"
 
 **Question**: Guyan cites Foucault's idea about how "'visibility is a trap'" (p. 20 of the PDF). What does this expression mean, and why does Guyan draw parallels between Foucault's original use of it with issues of power and data? Be sure to illuminate your discussion with specific examples that Guyan uses in the book.
 
-YOUR_RESPONSE_HERE
+This saying refers to how power can be enforced using the threat of surveillance. Here, Guyan uses this to mean that the increaed visibility on queer people does not mean their lives will improve, or that people using the datta will be interested in doing anything productive with it, he references a statement amde by Hammonds that visbility does not mean history has not been erased.
 
 ## 3. Questions about "The topology of race"
 
