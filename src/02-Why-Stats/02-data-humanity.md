@@ -49,7 +49,14 @@ All PDF copies are available in our learning management system.
 
 **Question**: According to D'Ignazio and Klein, what principles concern data and "power"? Define and discuss each principle below. Be sure to note the important questions to ask about data and power.
 
-YOUR_RESPONSE_HERE
+The principles are:
+* Examine power: acknowledge and observe how priviledge and structure empower and disempower certain people. Data science for whom, by whom, with whose interests and goals in mind?
+* Challenge power: challenge any observed unequally dispursed power. Collect and report counter data, that being data that doesn't feed the agenda of unjust insitiutions and reports the experices of disempowered people.
+* Elevate emotion and embodiement: it is important to value different types of knowledge, and acknowledging emotion as a form of knowledge. Helps to gound data and make it "real" and remind us that data shows evidence of lived expericences. Have your struck a balance between using the right amount of emotion, while still remaining the right amount of objectivity?are you excluding emotion because it is necessary to reflect data acurately, or because it is expected of you?
+* Rethink binaries and heriarchies: binaries, and categories in general, over simplify human expericences and often fail to capture reality. Binaries can perpeturate inequality by benefiting those on top. It can also be looked at the observe power inequality. Is it necessary to include a binary in your data (to expose real issues)? Does using a binary elevate the right group? Does using a binary hide an issue?
+* Embrace pluralism: It is important to take in experiences and information from many different perspectives, especially ones that are overlooked, to have a more completed knowledge set. We should gather data from those most affected. Rather than lean on big government, sometimes issues should be solved with community oriented and based organizations. Is there a point of view being left out? Do we need to exlcude a groups point of view to for the safety of a certain group? Who benefits from the eclusion of different points of view?
+* Consider context: Data is often the result of unequal social relationships, so context is paramount to properly and accurately analyzing data, for both the person or group studying it and people who use it or view it later down the line. How could this data be used or changed in different contexts?
+* Make labor visible: It is important to acknowledge the efforts of people who may often be overlooked in keeping the world running. Many people who get overlooked are the most foundational to society, a company, or the government, and are also often members of marginalized or overlooked communties (people of color, women, indigenous people, etc). Who is doing essential work and are they fairly compensated or acknowledged? Is credit going where credit is due? Who benefits from these people not being fsily compensated or acknowledged?
 
 ### 1.2 Data: Objective mirror, or not?
 
