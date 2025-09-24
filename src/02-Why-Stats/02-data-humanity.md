@@ -143,25 +143,25 @@ Here, I think Lee means that social contexts can have broad "happenings", theref
 
 **Question**: Briefly describe the "god trick" problem. Also, discuss what connections you recognize between the "god trick" problem and some issues raised in our other readings.
 
-YOUR_RESPONSE_HERE
+The "god-trick" problem is the belief that the scientific process is perectly objective and overcomes the fact that researchers and people are situated in a context-heavy reality. This reminds me especially of the readings from Monday about feminimist empiricism, and how kowledge making is inherently a community actvity and cannot be separated from context. 
 
 ### 4.2 What's stasis and stasis networks?
 
 **Question**: Briefly define stasis and stasis networks. Explain what stasis networks provides qualitative researchers?
 
-YOUR_RESPONSE_HERE
+Stasis is a procedure designed to guide people to come to a consensus about an issue using guiding questions, which are called stases, stases networks are frequently apllied stases, questions that address problems of fact, cause, definition, nature and quality, and action. They supply researchers with an ability to analyze the rhetoric present in research.
 
 ### 4.3 What's the "DMT cluster"?
 
 **Question**: What's the *DMT cluster*, and how did connect to observations about the data team's judgment about the *quality of metrics*?
 
-YOUR_RESPONSE_HERE
+The relationships between definitive, metrics, and translative nodes, which co-occure. alignment here means that there were incongruencies between goals of researchers and interpretations of their metrics.  
 
 ## 5. Synthesis Response
 
 **Question**: Pick and choose any particular combination of concepts and heuristics from the readings in 2.1 and 2.3. Use these questions and ideas to discuss your understanding of the 2024 NC General Election mail-in ballot data. What questions and criticisms do you have about the dataset's categories, hieararchies, collection, etc.?
 
-YOUR_RESPONSE_HERE
+N/A
 
 ## Submission
 
