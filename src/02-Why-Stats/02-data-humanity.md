@@ -129,13 +129,13 @@ This saying refers to how power can be enforced using the threat of surveillance
 
 **Question**: Why does Lee think it important that Appiah changed the standard line of inquiry in legal studies from "whether racism exists" (p. 441) to "what race and racism are"? What "overdetermined" (p. 441) parts or race, i.e., issues about race, does this definitional question bring into focus for deliberation? Be sure to ***define*** and discuss Appiah's position about race as being essential/biological or not and being cultural or not. Indeed, pay close attention to Appiah's definition of culture.
 
-YOUR_RESPONSE_HERE
+The distinction of asking What race and racism is versus do they exist opens the rest of his work up to simply getting to the point and asking more theorhetical questions about race and racism. It also provides and interesting assertion that Appiah doesn't need to ask the intiial "does..." question, because from his experience he they know it exists. From what I can tell, Appiah calls into question issues of biological racial determination, racial identity, and cultural identity. Appiah does not believe that race is biological, but that it is a constructed category, however, this has resulted in real cultursal differences between "races".
 
 ### 3.2 Race as multiplicitous
 
 **Question**: What does Lee mean by "race is always multiplicitous because social contexts are multiplicitous" (p. 447)? Use the Shaw v. Reno case to help you explain how this challenges both essentialist/biological definitions of race & Appiah's race as synonomous with culture.
 
-YOUR_RESPONSE_HERE
+Here, I think Lee means that social contexts can have broad "happenings", therefore as race is socially and culturally constructed, race is also multiplicitous because there can be many experices and expressions of race. Under Shaw v Reno, Justice O'Connor refers to race as being biological, and also something the state shouldn't recognize. This relates to the assertion that race is multiplicitous because if we limit ourselves to one definition of race, then wer risk opening doors to dangers of over categorization.
 
 ## 4. Questions about a data team's "rhetorical process of data"
 
