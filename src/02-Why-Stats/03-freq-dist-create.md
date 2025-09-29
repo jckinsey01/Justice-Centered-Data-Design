@@ -169,7 +169,7 @@ To be honest, we should never really drop that much data into a table. Nobody wa
 
 Also, as we move through this section of the book, we need to cultivate a critical awareness about how numbers, calculation, and other data types are never removed from the context of their collection and use. For this reason, we will be learning about data and statistical work with a wholistic socially just approach in mind. To help us accomplish this aim, we will be using a running scenario that involves working with the 2024 North Carolina general election data for absentee ballots. We will specifically take on the following scenario and role as a communicator working at a nonprofit called **Protect Democracy**:
 
-> You work for a nonpartisan, nonprofit called **Protect Democracy** (PD) as an analyst and writer. One of PD's missions is to ensure free an fair elections. They want to run a series of stories about mail-in voting, and they recalled how, during the 2020 election, NC had racial disparity with regards to whose ballots were being rejected ([See 538 story](https://fivethirtyeight.com/features/north-carolina-is-already-rejecting-black-voters-mail-in-ballots-more-often-than-white-voters/)). Consequently, they want you to look into any potential rejected ballot issues that might have occurred for mail-in voters in NC during the 2024 election.
+> You work for a nonpartisan, nonprofit called **Protect Democracy** (PD) as an analyst and writer. One of PD's missions is to ensure free and fair elections. They want to run a series of stories about mail-in voting, and they recalled how, during the 2020 election, NC had racial disparity with regards to whose ballots were being rejected ([See 538 story](https://fivethirtyeight.com/features/north-carolina-is-already-rejecting-black-voters-mail-in-ballots-more-often-than-white-voters/)). Consequently, they want you to look into any potential rejected ballot issues that might have occurred for mail-in voters in NC during the 2024 election.
 
 ### About the NC absentee voter ballot data, and its provenance
 
@@ -187,15 +187,20 @@ Finally, inside of the `/src/data/nc-voters/provenance/` folder, you can also re
 
 **Question**: After reviewing the above information, how would a SJ ethic inform your intiial understanding of the data, its collected values, and its context? List out in other information or questions that you sense might be missing about the data.
 
-ENTER_YOUR_RESPONSE_HERE
+My first thoughts while reading the background info are that these forms would be extremely difficult for people who have a disability and little to no assistance, people for whome english is not a first lnaguage, people who may not have recieved consistent or sufficient education. I kept reading things and thinking how many things could go wrong in the process that would result in the ballot being declared invalid, and how it would be easier to just go to a physical site and do it, which defeats the point of the mail in ballot option. I think that information like demographicsa (race, gender, etc) should not be visible to those making decisions about what ballots to toss. That way, its slightly more fair in that there's nothing to subconsciously encourage someone to toss it other than what actually determines if it needs tossed.
 
 **Question**: Based on the case scenario as a communicator at Protect Democracy, and a SJ ethic in mind, what questions, i.e., angles, do you think may be helpful to meet the needs of your situation. Discuss any columns/fields that you are surprised about or spark any curiosities, and create a list of questions they spark in you.
 
-ENTER_YOUR_RESPONSE_HERE
+* How many ballots rejected are sent in by differently abled voters?
+* How many ballots rejected are sent in by minorities?
+* How many ballots rejected are sent in by those with a complicated or unstable housing situation?
+* How many ballots rejected included someone assiting the voter, versus how many ballots accepted had someone assiting the voter?
+
+I'm interested in the voter assistance, as I wonder how that impacts the likliehood of a ballot being accepted. I'm also interested in the hosuing and address aspects for the same reason.  
 
 **Question**: What can you understand about the `ballot_rtn_status` column? In other words, what types of values are possible?
 
-ENTER_YOUR_RESPONSE_HERE
+That I'm still confused about and couldn't see any pdfs that explained that, I probably just missed it. I think that you can get "accepted" or things that imply rejection, like soiled, returned after deadline, info incomplete, etc.
 
 ## 2.3.4 Calculate Absolute Grouped Frequencies with RFS Method
 
