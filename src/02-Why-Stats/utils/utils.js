@@ -97,6 +97,7 @@ export const oneLevelRollUpFlatMap = (data, level1Key, countKey) => {
   )
 
   // 2. Flatten back to array of objects
+ // level1Key = name of column
   const flatTotals = colTotals.flatMap((e) => {
     return {
       [level1Key]: e[0],
