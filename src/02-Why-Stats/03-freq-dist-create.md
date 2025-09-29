@@ -135,8 +135,7 @@ Ok, now I want you to put all of those pieces together in your own `Inputs.table
 ```js
 // Insert your table here
 Inputs.table(ncVotersAll, {
-  // The array of objects
-  ncVotersAll,
+  // The array of objects,
     // enter each customizing property in this object
  columns: [
       "id_num", "county_desc", "race", "gender", "age",
@@ -279,7 +278,7 @@ Ok, so we want to create a desired ***grouping*** of `ballot_rtn_status` > `race
     2. Add second param: the computation to perform on the rolled up data. In this case, we want the absolute frequency of ballot statuses per race.
 
 <!-- Example rollups() -->
-```javascript
+```js
 /**
  * .rollups()
  * @return: a flattened version of InternMap:
@@ -298,7 +297,7 @@ const afStatusByRace = d3.rollups(
 </p>
 
 <!-- afStatusByRace output -->
-```javascript
+```js
 // Convert to render on page
 afStatusByRace
 ```
