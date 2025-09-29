@@ -59,8 +59,9 @@ Again, we are going to continue working with the 2024 NC absentee voter CSV file
 2. Assign the data to a variable named `ncVotersAll`.
 3. Render it to the page in a separate codeblock.
 
-```javascript
+```js
 // FileAttachment() code here assigned to `ncVotersAll`
+const ncVotersAll = FileAttachment("./../data/nc-voters/absentee_2024_aggregated.csv").csv({typed:true})
 ```
 
 Output the data as an interactive array of objects below:
@@ -69,8 +70,7 @@ Output the data as an interactive array of objects below:
   Interactive output of full data set in <code>ncVotersAll</code>
 </p>
 
-```javascript
-// Convert to render on page
+```js
 ncVotersAll
 ```
 
@@ -132,15 +132,35 @@ Ok, now I want you to put all of those pieces together in your own `Inputs.table
 
 ![Example output table](./../assets/images/2-why-stats/02-why-stats-ex-table.png)
 
-```javascript
+```js
 // Insert your table here
-Inputs.table(
+Inputs.table(ncVotersAll, {
   // The array of objects
   ncVotersAll,
-  {
     // enter each customizing property in this object
-  }
-)
+ columns: [
+      "id_num", "county_desc", "race", "gender", "age",
+      "ballot_request_party", "ballot_rtn_status"
+    ],
+   rows: 25,
+   width: {
+      id_num: 20,
+      county_desc: 90,
+      gender: 40,
+      age: 20,
+      race: 90,
+      ballot_request_party: 90,
+    },
+     header: {
+      id_num: "ID",
+      county_desc: "County",
+      race: "Race",
+      gender: "Gender",
+      age: "Age",
+      ballot_request_party: "Ballot Party",
+      ballot_rtn_status: "Ballot Status",
+    },
+  })
 ```
 
 ## E3. Case Scenario & Data Provenance
