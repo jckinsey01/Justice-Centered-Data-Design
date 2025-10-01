@@ -457,7 +457,7 @@ import {twoLevelRollUpFlatMap} from "./utils/utils.js"
 
 ```js
 // Convert and create your own two-level grouping
-const byRaceAndStatus = twoLevelRollUpFlatMap(
+let byRaceAndStatus = twoLevelRollUpFlatMap(
   ncVotersAll,
   "race",
   "ballot_rtn_status",
