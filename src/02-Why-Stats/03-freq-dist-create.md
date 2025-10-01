@@ -547,19 +547,50 @@ Follow along with me in the video below to learn how to create a custom function
   <source src="./../assets/vids/02-why-stats/02-sumUpWithReducerTests-1-twoLevel.mp4" type="video/mp4" />
 </video>
 
-<!-- Your Reducer Functions -->
-```javascript
-// Convert and create your own reducer functions akin to "ACCEPTED" vs "REJECTED"
+```js
+const getAcceptedBallots = (d) => {
+  if (d.ballot_rtn_status != null && d.ballot_rtn_status.startsWith ("ACCEPTED") == true){
+    return d.af
+  }
+  else {
+    return 0
+  }
+}
 ```
+<!-- Your Reducer Functions -->
+```js
+// Convert and create your own reducer functions akin to "ACCEPTED" vs "REJECTED"
 
+const getAcceptedBallots = (d) => {
+  if (d.ballot_rtn_status != null && d.ballot_rtn_status.startsWith ("ACCEPTED") == true){
+    return d.af
+  }
+  else {
+    return 0
+  }
+}
+```
+```js
+import {sumUpWithReducerTests} from "./utils/utils.js"
+```
 <!-- Call and use sumUpWithReducerTests() -->
-```javascript
-/**
+```js
+
+const getRejectedBallots = (d) => {
+if (d.ballot_rtn_status != null && d.
+  ballot_rtn_status.startsWith("ACCEPTED") == false) {
+    return d.af
+  }
+  else {
+    return 0
+  }
+}
+```
+<!-- /**
  * Convert and use sumUpWithReducerTests().
  * Be sure to review the utils.js file, so you
  * can see the parameters needed for the function.
-**/
-```
+**/ -->
 
 <p class="codeblock-caption">
   Interactive output of using sumUpWithReducerTests().
