@@ -615,15 +615,35 @@ Ok, tabulate the rolledup and summed-up results with `Inputs.table()`. Be sure t
 3. Sort the table based on what you deem the most helpful combo of column and ascending vs. descending.
 4. Be sure to provide a short response to the question about your table design.
 
-```javascript
-// Enter your table here
+```js
+// Insert your table here
+Inputs.table(ballotResults, {
+  // The array of objects,
+    // enter each customizing property in this object
+   rows: 25,
+   align: {
+    race: "center",
+    ballot_rtn_status: "center",
+    count: "center",
+   },
+   width: {
+      race: 50,
+      ballot_request_status: 20,
+    },
+     header: {
+      race: "Voters Race",
+      ballot_rtn_status: "Ballot Status",
+      count: "Number Accepted/Rejected"
+
+    },
+  })
 ```
 
 ### Question: Explain your table design choices.
 
 **Q**: What *insights* and *new questions* did you garner from it that you hope to also illustrate/provide for your audience?
 
-ENTER_YOUR_RESPONSE_HERE
+This table allows me to see the results of my previous exercise. I can see each of the two races I selected to see and the accepted versus rejected number. I used align and width to adjust how my data was displayed. I think I'd like to know how to display it with columns, one for accpted one for rejected, with having one row per race. It would save space on the page.
 
 ## Conclusion
 
