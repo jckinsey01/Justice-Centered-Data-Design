@@ -547,19 +547,10 @@ Follow along with me in the video below to learn how to create a custom function
   <source src="./../assets/vids/02-why-stats/02-sumUpWithReducerTests-1-twoLevel.mp4" type="video/mp4" />
 </video>
 
-```js
-const getAcceptedBallots = (d) => {
-  if (d.ballot_rtn_status != null && d.ballot_rtn_status.startsWith ("ACCEPTED") == true){
-    return d.af
-  }
-  else {
-    return 0
-  }
-}
-```
 <!-- Your Reducer Functions -->
 ```js
 // Convert and create your own reducer functions akin to "ACCEPTED" vs "REJECTED"
+// E6: byRaceAndStatus
 
 const getAcceptedBallots = (d) => {
   if (d.ballot_rtn_status != null && d.ballot_rtn_status.startsWith ("ACCEPTED") == true){
@@ -569,9 +560,6 @@ const getAcceptedBallots = (d) => {
     return 0
   }
 }
-```
-```js
-import {sumUpWithReducerTests} from "./utils/utils.js"
 ```
 <!-- Call and use sumUpWithReducerTests() -->
 ```js
@@ -586,6 +574,10 @@ if (d.ballot_rtn_status != null && d.
   }
 }
 ```
+```js
+import {sumUpWithReducerTests} from "./utils/utils.js"
+```
+
 <!-- /**
  * Convert and use sumUpWithReducerTests().
  * Be sure to review the utils.js file, so you
@@ -596,9 +588,22 @@ if (d.ballot_rtn_status != null && d.
   Interactive output of using sumUpWithReducerTests().
 </p>
 
+```js
+ const ballotResults = sumUpWithReducerTests(
+[{type: "Accepted Ballot", func: getAcceptedBallots, }, {type: "Rejected Ballot", func: getRejectedBallots, },
+],
+["WHITE", "ASIAN"], 
+byRaceAndStatus,
+"race",
+"ballot_rtn_status",
+"count",
+ )
+ ```
+
 <!-- Your Reducer Functions -->
-```javascript
+```js
 // Convert and output your summed up data
+ballotResults
 ```
 
 ## E8. Tabulated absolute frequencies of rejected ballots per race
