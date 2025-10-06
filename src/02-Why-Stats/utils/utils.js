@@ -219,7 +219,6 @@ export const sumUpWithReducerTests = (reducerFunctions, reducerProperties, data,
   // 6. Return array of freq objects
   return freqResults
 }
-
 /**
  * Write your 3-level grouping code below.
  *

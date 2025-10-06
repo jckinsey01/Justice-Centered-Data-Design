@@ -5,6 +5,7 @@
 import {utcParse,utcFormat} from "d3-time-format";
 // Import your custom modules here: getUniquePropListBy, oneLevelRollUpFlatMap, twoLevelRollUpFlatMap, threeLevelRollUpFlatMap, sumUpWithReducerTests
 import {getUniquePropListBy} from "./utils/utils.js";
+import {mapDateObject} from "./utils/utils.js";
 ```
 
 ## Start Your GH Workflow
@@ -215,6 +216,31 @@ export const mapDateObject = (data, dateString) => {
 
 }
 ```
+```js
+const parseDate = (dateString) => {
+  const dateParts = dateString.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+  if (!dateParts) {
+    return null;
+  }
+  const month = parseInt(dateParts[1], 10);
+  const day = parseInt(dateParts[2], 10);
+  const year = parseInt(dateParts[3], 10);
+  const date = new Date(Date.UTC(year, month - 1, day));
+  if (
+    date.getUTCFullYear() !== year ||
+    date.getUTCMonth() !== month - 1 ||
+    date.getUTCDate() !== day
+  ) {
+    return null;
+  }
+
+  return date;
+};
+```
+```js
+const date1 = parseDate("10/26/2025");
+console.log(date1); // Expected output: 2025-10-26T00:00:00.000Z
+```
 
 Import the `mapDateObject` function in the `import` statement at the top of this page, so you can start to develop and test it as you use it. I have already imported the `getUniquePropListBy()` function from `utils.js`, so you only need to add a comma after it—like you do in Arrays.
 
@@ -222,7 +248,7 @@ Import the `mapDateObject` function in the `import` statement at the top of this
   Console logs are your friend for testing your code! Just be sure to erase them, when you don't need them anymore.
 </p>
 
-```javascript
+```js
 // Convert so you can test your imported function as you develop it
 const ncVotersAllUpdated = mapDateObject(ncVotersAll, "ENTER THE DATEFIELD HERE")
 ```
@@ -233,7 +259,7 @@ Ok, now convert the below codeblock to an exectuable one, so you can view the ou
   Interactive output of <code>ncVotersAllUpdated</code> with new date properties:
 </p>
 
-```javascript
+```js
 // Convert to output
 ncVotersAllUpdated
 ```
