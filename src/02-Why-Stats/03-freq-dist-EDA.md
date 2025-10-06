@@ -151,8 +151,14 @@ Ok, the code below has already been added to the `utils.js` file, so be sure to 
   I highly recommend opening a <strong>two-column layout in VS Code</strong>, so you can see both files as you work on each part of this exercise.
 </p>
 
+```js
+export const parseDate = utcParse("%m/%d/%Y")
+```
+```js
+export const formatWeekNumber = utcFormat("%U")
+```
 <!-- Example export codeblock -->
-```javascript
+```js
 /** ======================================
  * This code is in the utils.js file
  * for this section of the book.
@@ -190,6 +196,7 @@ export const mapDateObject = (data, dateString) => {
        *    called `objField`.
       **/
      ballot[objField] = parseDate(ballot[dateField])
+     ballot[weekField] = Number(formatWeekNumber(ballot[objField]))
     }
     return ballot
   })
@@ -215,31 +222,6 @@ export const mapDateObject = (data, dateString) => {
   return sortedData
 
 }
-```
-```js
-const parseDate = (dateString) => {
-  const dateParts = dateString.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
-  if (!dateParts) {
-    return null;
-  }
-  const month = parseInt(dateParts[1], 10);
-  const day = parseInt(dateParts[2], 10);
-  const year = parseInt(dateParts[3], 10);
-  const date = new Date(Date.UTC(year, month - 1, day));
-  if (
-    date.getUTCFullYear() !== year ||
-    date.getUTCMonth() !== month - 1 ||
-    date.getUTCDate() !== day
-  ) {
-    return null;
-  }
-
-  return date;
-};
-```
-```js
-const date1 = parseDate("10/26/2025");
-console.log(date1); // Expected output: 2025-10-26T00:00:00.000Z
 ```
 
 Import the `mapDateObject` function in the `import` statement at the top of this page, so you can start to develop and test it as you use it. I have already imported the `getUniquePropListBy()` function from `utils.js`, so you only need to add a comma after it—like you do in Arrays.
