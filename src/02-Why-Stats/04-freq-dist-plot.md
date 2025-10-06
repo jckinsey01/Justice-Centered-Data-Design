@@ -3,7 +3,8 @@
 ```js
 import {utcParse, utcFormat} from "d3-time-format";
 // Import your functions
-
+import {mapDateObject} from "./utils/utils.js";
+import {onelevelRollUpFlatMap, twoLevelRollUpFlatMap, threeLevelRollUpFlatMap, getUniquePropListBy} from "./utils/utils.js";
 ```
 
 ## Start Your GH Workflow
@@ -127,15 +128,16 @@ Again, we are going to continue working with the 2024 NC absentee voter CSV file
 2. Assign the data to a variable named `ncVotersAll`.
 3. Render it to the page in a separate codeblock.
 
-```javascript
+```js
 // FileAttachment() code here.
+const  ncVotersAll = FileAttachment("./../data/nc-voters/nc_absentee_mail_2024.csv").csv({typed:true})
 ```
 
 <p class="codeblock-caption">
   Interactive output of full data set.
 </p>
 
-```javascript
+```js
 // Convert if you want to print the data to the page
 ncVotersAll
 ```
@@ -145,20 +147,20 @@ ncVotersAll
 Let's use our helpful `mapDateObject()` function in the `utils.js` file, so we can easily create Date() objects and new date fields, such as week numbers.
 
 <!-- Create date objects and new date props -->
-```javascript
+```js
 /**
  * Use the mapDateObject() function below
  * and assign the returned data to a new
  * constant called `ncUpdates`
 **/
-
+const ncUpdates = mapDateObject(ncVotersAll, "ballot_req_dt")
 ```
 
 <p class="codeblock-caption">
   Interactive output of full data set.
 </p>
 
-```javascript
+```js
 // Convert if you want to print the data to the page
 ncUpdates
 ```
@@ -178,18 +180,19 @@ Alright, let's use our custom utility functions to create some data to plot. Con
     <p class="note">We're also going to sort this data after we roll it up and flatten it.</p>
 
 <!-- Use the custom functions here -->
-```javascript
+```js
 // Convert and create the data described above
-
+const afByRace = onLevelRollUpFlatMap(ncUpdates, "race", "af")
+const afByWeekAndRace = twoLevelRollUpFlatMap(ncUpdates, "ballot_req_dt_week", "race", "af")
 ```
 
 <p class="codeblock-caption">
   Feel free to use the codeblock below to check your outputs.
 </p>
 
-```javascript
+```js
 // Convert check outputs: afByRace & afByWeekAndRace
-
+afByWeekAndRace
 ```
 
 ## E4. Sort *afByWeekAndRace* with *.sort()*
@@ -205,7 +208,7 @@ JS has the built-in `sort()` method, which takes a function/accessor as a parame
 3. Code that does organizes the data.
     - In this case, we can use D3's `ascending()` function, which accepts two parameters: the 2 items to compare. Since we're comparing two objects, we need to specify which keys to compare with `a` & `b`.
 
-```javascript
+```js
 // How to use JS' .sort() method with D3's ascending or descending functions.
 const afByWeekAndRaceSorted = afByWeekAndRace.sort(
   // sort() takes a function/accessor as a parameter.
@@ -219,7 +222,7 @@ const afByWeekAndRaceSorted = afByWeekAndRace.sort(
 
 ```javascript
 // Convert and output rendered data to page
-
+afByWeekAndRacwSorted
 ```
 
 ## E5. Bar Chart: Plotting Absolute Frequencies
@@ -265,6 +268,24 @@ const afByWeekAndRaceSorted = afByWeekAndRace.sort(
   </p>
 </video>
 
+<!-- ```js
+Plot.plot({
+  marks: [
+    Plot.ruleY([0]),
+    Plot.barY(
+      afByRace,
+    {
+    x: "race",
+    y: "af",
+    insetRight: 10,
+    insetLeft: 10, 
+    sort: ()
+    }
+    )),
+  ]
+})
+``` -->
+
 ### Plot `afByRace` with `.barY()`
 
 I've supplied you with the skeleton for this plot. Be sure to add the options noted in the directions above.
@@ -278,6 +299,26 @@ Plot.plot({
 
     // 3. Create your bar chart
     Plot.barY()
+  ]
+})
+```
+
+```js
+Plot.plot({
+  grid: true,
+  marginLeft: 100,
+  marginRight: 0,
+  marginBottom: 60,
+  marginTop: 60,
+  label: null,
+  tip: true,
+  color: {legend: true},
+  x: {label: "Race", padding: 0},
+  y: {label: "Aboslute Frequency", padding: 0},
+
+  marks: [
+    Plot.ruleY([0]),
+
   ]
 })
 ```
@@ -330,9 +371,30 @@ The output should resemble the following video, but you may add any options that
   </p>
 </video>
 
-```javascript
-// Convert and plot the histogram here
 
+
+```js
+// Convert and plot the histogram here
+//there is moew above you're supposed to have.
+"blue", strokeWidth: 3,}),
+Plot.rectY(
+  monthlyBallotRequests,
+  {
+    x: "ballot_req_dt_month",
+    y: "af",
+    tip: true,
+    insertLeft: -3,
+    insertRight: -3, 
+    insertBottom: 1,
+    interval: 4,
+  }
+),
+Plot.tip(
+['Online ballot requests/nbegin in January 2024.'],
+{x: 1, y: 10000, dy: -3, anchor: "bottom"}
+),
+]
+})
 ```
 
 ## 2.4.2. Line Chart: Plotting Our Grouped, Interval, Frequency Distributions
