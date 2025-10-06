@@ -32,8 +32,10 @@ export const mapDateObject = (data, dateString) => {
        *    property for each `ballot`
        *    called `objField`.
       **/
-     ballot[objField] = parseDate(ballot[dateField])
+     ballot[objField] = parseDate(ballot[dateString])
+     ballot[weekField] = Number(formatWeekNumber(ballot[objField]))
     }
+  
     return ballot
   })
 
@@ -233,4 +235,8 @@ export const sumUpWithReducerTests = (reducerFunctions, reducerProperties, data,
  * (4) Add 1 more nested .flatMap() to handle the
  *     third level.
 **/
+//E2
+export const parseDate = utcParse("%m/%d/%Y")
+export const formatWeekNumber = utcFormat("%U")
+
 

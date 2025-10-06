@@ -6,6 +6,8 @@ import {utcParse,utcFormat} from "d3-time-format";
 // Import your custom modules here: getUniquePropListBy, oneLevelRollUpFlatMap, twoLevelRollUpFlatMap, threeLevelRollUpFlatMap, sumUpWithReducerTests
 import {getUniquePropListBy} from "./utils/utils.js";
 import {mapDateObject} from "./utils/utils.js";
+import { parseDate} from "./utils/utils.js";
+import {formatWeekNumber} from "./utils/utils.js";
 ```
 
 ## Start Your GH Workflow
@@ -103,7 +105,7 @@ Let's attach and render the dataset CSV file called `nc_absentee_mail_2024_no_dr
 Let's assign the attached data to a constant variable called `ncVotersAll`.
 
 ```js
-const ncVotersAll = FileAttachment("./../data/nc-voters/absentee_2024_aggregated.csv").csv({typed:true})
+const ncVotersAll = FileAttachment("./../data/nc-voters/nc_absentee_mail_2024.csv").csv({typed:true})
 ```
 
 <p class="codeblock-caption">
@@ -151,14 +153,9 @@ Ok, the code below has already been added to the `utils.js` file, so be sure to 
   I highly recommend opening a <strong>two-column layout in VS Code</strong>, so you can see both files as you work on each part of this exercise.
 </p>
 
-```js
-export const parseDate = utcParse("%m/%d/%Y")
-```
-```js
-export const formatWeekNumber = utcFormat("%U")
-```
+
 <!-- Example export codeblock -->
-```js
+<!-- ```js -->
 /** ======================================
  * This code is in the utils.js file
  * for this section of the book.
@@ -179,50 +176,50 @@ export const formatWeekNumber = utcFormat("%U")
  *    the property name for the date field, whose
  *    value is a string `dateString`.
 **/
-export const mapDateObject = (data, dateString) => {
+//export const mapDateObject = (data, dateString) => {
 
-  // 2. Use .map() to iterate the `data` and create new date props
-  const updatedData = data.map((ballot) => {
+//   // 2. Use .map() to iterate the `data` and create new date props
+//   const updatedData = data.map((ballot) => {
 
-    // 3. Create dynamic keys to use for new properties
-    const objField = dateString+"_obj"
-    const weekField = dateString+"_week"
+//     // 3. Create dynamic keys to use for new properties
+//     const objField = dateString+"_obj"
+//     const weekField = dateString+"_week"
 
-    // 4. Skip any null request dates
-    if (ballot[dateString] != null) {
-      /**
-       * 5. Assign a date object to a new
-       *    property for each `ballot`
-       *    called `objField`.
-      **/
-     ballot[objField] = parseDate(ballot[dateField])
-     ballot[weekField] = Number(formatWeekNumber(ballot[objField]))
-    }
-    return ballot
-  })
+//     // 4. Skip any null request dates
+//     if (ballot[dateString] != null) {
+//       /**
+//        * 5. Assign a date object to a new
+//        *    property for each `ballot`
+//        *    called `objField`.
+//       **/
+//      ballot[objField] = parseDate(ballot[dateField])
+//      ballot[weekField] = Number(formatWeekNumber(ballot[objField]))
+//     }
+//     return ballot
+//   })
 
-  /**
-   * 5. Sort the data by week numbers in ascending order.
-   * I also recommend sorting your data
-   * in ascending order before returning
-   * it back, since you normally want your
-   * data to mirror the concept recorded.
-   * In this case, weeks are temporal data
-   * in a chronological sequence: 1, 2, 3, ...
-  **/
-  const sortedData = updatedData.sort(
-    // Works like an accessor function to pass two objects to compare
-    (a, b) => {
-      // Uses D3's ascending() function to sort by the given properties
-      return ascending(a.ballot_req_dt_week, b.ballot_req_dt_week)
-    }
-  )
+//   /**
+//    * 5. Sort the data by week numbers in ascending order.
+//    * I also recommend sorting your data
+//    * in ascending order before returning
+//    * it back, since you normally want your
+//    * data to mirror the concept recorded.
+//    * In this case, weeks are temporal data
+//    * in a chronological sequence: 1, 2, 3, ...
+//   **/
+//   const sortedData = updatedData.sort(
+//     // Works like an accessor function to pass two objects to compare
+//     (a, b) => {
+//       // Uses D3's ascending() function to sort by the given properties
+//       return ascending(a.ballot_req_dt_week, b.ballot_req_dt_week)
+//     }
+//   )
 
-  // 6. Return the populated and sorted array of objects
-  return sortedData
+//   // 6. Return the populated and sorted array of objects
+//   return sortedData
 
-}
-```
+// }
+// ```
 
 Import the `mapDateObject` function in the `import` statement at the top of this page, so you can start to develop and test it as you use it. I have already imported the `getUniquePropListBy()` function from `utils.js`, so you only need to add a comma after it—like you do in Arrays.
 
@@ -231,6 +228,10 @@ Import the `mapDateObject` function in the `import` statement at the top of this
 </p>
 
 ```js
+const ncVotersAllUpdated = mapDateObject(ncVotersAll, "ballot_req_dt")
+```
+
+```javascript
 // Convert so you can test your imported function as you develop it
 const ncVotersAllUpdated = mapDateObject(ncVotersAll, "ENTER THE DATEFIELD HERE")
 ```
