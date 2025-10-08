@@ -8,6 +8,7 @@ import {getUniquePropListBy} from "./utils/utils.js";
 import {mapDateObject} from "./utils/utils.js";
 import { parseDate} from "./utils/utils.js";
 import {formatWeekNumber} from "./utils/utils.js";
+import {threeLevelRollUpFlatMap} from  "./utils/utils.js";
 ```
 
 ## Start Your GH Workflow
