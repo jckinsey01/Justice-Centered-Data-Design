@@ -499,8 +499,24 @@ sex
 
 **Goal**: Make a `for` loop that considers each item in the `sex` list. Log "Person is male" ***if*** the person is `"m"`, "Person is female" ***if*** the person is `"f"`, "Person is intersex" ***if*** the person is `"i"`, and "Person's sex is not known" ***if*** `"unknown"`.
 
-```javascript
-// Your code here
+```js
+let sex = ["f", "m", "f", "m", "i"];
+let sexListMFI = [];
+for (const person_sex of sex) {
+    if (person_sex == 'm'){
+        sexListMFI.push('Person is male');
+     } else if (person_sex == 'f') {
+       sexListMFI.push('Person is female');
+     } else if (person_sex == 'i') {
+        sexListMFI.push('Person is intersex');
+     } else {
+        sexListMFI.push('Person\'s sex is not known');
+    }
+}
+```
+
+```js
+sexListMFI
 ```
 
 Make sure to check if the items are logged correctly.
