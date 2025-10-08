@@ -13,7 +13,10 @@ import {ascending,descending,sum,rollup,rollups} from "d3-array";
 import {utcParse,utcFormat} from "d3-time-format";
 
 // Add Your Date Parsers & Formatters Below
-
+const parseDate = utcParse("%m/%d/%Y");
+const formatWeekNumber = utcFormat ("%W")
+const formatMonthNumber = utcFormat ("%m")
+const formatYearNumber = utcFormat("%Y")
 
 // Complete this codeblock code from Chapter E-2.2, exercise 2 below
 export const mapDateObject = (data, dateString) => {

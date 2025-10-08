@@ -13,7 +13,7 @@ import {getUniquePropListBy} from "./utils/utils.js";
 import {mapDateObject} from "./utils/utils.js";
 import {parseDate} from "./utils/utils.js";
 import {formatWeekNumber} from "./utils/utils.js";
-import {threeLevelRollUpFlatMap} from  "./utils/utils.js";
+import {threeLevelRollUpFlatMap, twoLevelRollUpFlatMap, oneLevelRollUpFlatMap} from  "./utils/utils.js";
 ```
 ## Start Your GH Workflow
 
@@ -190,7 +190,7 @@ Alright, let's use our custom utility functions to create some data to plot. Con
 <!-- Use the custom functions here -->
 ```js
 // Convert and create the data described above
-const afByRace = onLevelRollUpFlatMap(ncUpdates, "race", "af")
+const afByRace = oneLevelRollUpFlatMap(ncUpdates, "race", "af")
 const afByWeekAndRace = twoLevelRollUpFlatMap(ncUpdates, "ballot_req_dt_week", "race", "af")
 ```
 
@@ -507,6 +507,9 @@ Assign it to a constant variable named `ncMailBallots`.
 
 <!-- JS codeblock to attach nc_absentee_mail_2024_no_dropped_dupes.csv -->
 
+```js
+const ncMailBallots = FileAttatchment("./../data/nc-voter/nc_absentee_mail_2024.csv").csv({typed:true})
+```
 
 ### 2. Map date objects to OG data
 
@@ -516,6 +519,9 @@ Assign it to a constant variable named `ncMailBallotsUpdated`.
 
 <!-- JS codeblock to map date objects as ncMailBallotsUpdated-->
 
+```js
+const ncMailBallotsUpdated = mapDateObject(ncMailBallotsUpdated, "ballot_req_dt");
+```
 
 Output `ncMailBallotsUpdated` below:
 
@@ -560,6 +566,72 @@ Finally, we need to reduce our grouped data to either being ACCEPTED or REJECTED
 </p>
 
 I recommend reusing your code from the last chapter.
+
+```js
+const getAcceptedBallots = (d) => {
+  if (d.ballot_rtn_status != null && d.ballot_rtn_status.startsWith("ACCEPTED") == true) {
+    return d.af
+  }
+  else {
+    return 0
+  }
+}
+
+const getRejectedBallots = (d) => {
+  if (d.ballot_rtn_status != null && d.ballot_rtn_status.startsWith("ACCEPTED") == false) {
+    return d.af
+  }
+  else {
+    return 0
+  }
+}
+
+```
+
+```js
+const reducerProps = ["WHITE", "BLACK OR AFRICAN AMERICA"]
+const reducerFuncs = [
+  {type: "ACCEPTED", func: getAcceptedBallots },
+  {type: "REJECTED", func: getRejectedBallots },
+]
+const uniqeListOfWeekNumbers = getUniquePropListBy(afByWeekRaceStatus, "ballot_req_dt_week")
+```
+
+```js
+const afGroupedPercResults = []
+for (const weekNumber of uniqueListOfWeekNumbers) {
+  for (const testorObj in reducerFuncs) {
+    for (const rProperty in reducerProps) {
+  
+   const weekAF = d3.sum(
+      afByWeekRaceStatus,
+      (d) => {
+        if (d.ballot_rtn_status != null && d.ballot_req_dt_week == weekNumber && d.race == reducerProps[rProperty]) {
+          return d.af
+        }
+      }
+    )
+    const summedUpLevel = d3.sum(
+      afByWeekRaceStatus, 
+      (d) => {
+        if (d.ballot_req_dt_week == weekNumber && d.race == reducerProps[rProperty]) {
+          const xTotalsToSum = reducerFucns[testorObj]["func"](d)
+          return xTotalToSum
+        }
+      }
+    )
+    atGroupedPercResults.push({
+      ballot_req_dt_week: weekNumber,
+      race: reducedProps[rProperty],
+      ballot_rtn_status: reducerFuncs[testorObj]["type"],
+      af: summedUpLevel,
+      percentage: summedUpLevel / weekAF,
+    })
+    }
+  }
+}
+```
+
 
 ### 5. Filter the data for plotting
 
