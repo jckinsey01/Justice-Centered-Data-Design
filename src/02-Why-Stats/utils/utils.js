@@ -12,6 +12,11 @@
 import {ascending,descending,sum,rollup,rollups} from "d3-array";
 import {utcParse,utcFormat} from "d3-time-format";
 
+const parseDate = utcParse("%m/%d/%Y");
+const formatWeekNumber = utcFormat ("%W")
+const formatMonthNumber = utcFormat ("%m")
+const formatYearNumber = utcFormat("%Y")
+
 // Add Your Date Parsers & Formatters Below
 
 
@@ -32,8 +37,10 @@ export const mapDateObject = (data, dateString) => {
        *    property for each `ballot`
        *    called `objField`.
       **/
-     ballot[objField] = parseDate(ballot[dateField])
+     ballot[objField] = parseDate(ballot[dateString])
+     ballot[weekField] = Number(formatWeekNumber(ballot[objField]))
     }
+  
     return ballot
   })
 
@@ -219,7 +226,6 @@ export const sumUpWithReducerTests = (reducerFunctions, reducerProperties, data,
   // 6. Return array of freq objects
   return freqResults
 }
-
 /**
  * Write your 3-level grouping code below.
  *
@@ -234,4 +240,52 @@ export const sumUpWithReducerTests = (reducerFunctions, reducerProperties, data,
  * (4) Add 1 more nested .flatMap() to handle the
  *     third level.
 **/
+
+//E3
+
+export const threeLevelRollUpFlatMap = (data, level1Key, level2Key, level3Key, countKey) => {
+  // 1. Rollups on 3 nested levels
+  const colTotals = rollups(
+    data,
+    (v) => v.length, // Count length of leaf node
+    (d) => d[level1Key], // Accessor at 1st level
+    (d) => d[level2Key], // Accessor at 2nd level
+    (d) => d[level3Key], // Accessor at 3rd level
+  );
+
+  // 2. Flatten 1st grouped level back to an array of objects
+  const flatTotals = colTotals.flatMap((l1Elem) => {
+    // 2.1. Assign level 1 key
+    const l1KeyValue = l1Elem[0];
+
+    // 2.2. Flatten 2nd grouped level
+    const flatL2 = l1Elem[1].flatMap((l2Elem) => {
+      // 2.2.1. Assign level 2 key
+      const l2KeyValue = l2Elem[0];
+
+      // 2.3. Flatten 3rd grouped level
+      const flatL3 = l2Elem[1].flatMap((l3Elem) => {
+        // 2.3.1. Assign level 3 key
+        const l3KeyValue = l3Elem[0];
+
+        // 2.3.2. Return fully populated object
+        return {
+          [level1Key]: l1KeyValue,
+          [level2Key]: l2KeyValue,
+          [level3Key]: l3KeyValue,
+          [countKey]: l3Elem[1],
+        };
+      });
+
+      // 2.4. Return the flattened level 3 array
+      return flatL3;
+    });
+
+    // 2.5. Return the flattened level 2 array
+    return flatL2;
+  });
+
+  // 3. Return the final flattened array
+  return flatTotals;
+};
 
