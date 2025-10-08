@@ -337,13 +337,13 @@ Plot.plot({
 
 To create the plot that you have the `oneLevelRollUpFlatMap()` function at your fingertips, as well as the new date property field for the month number, `ballot_req_dt_month`, which you should have created with `mapDateObject()` before this part of the notebook.
 
-```javascript
+```js
 /**
  * Use oneLevelRollUpFlatMap() to count the
  * absolute frequencies (AF) of `ballot_req_dt_month`.
  * Name the AF property `af`.
 **/
-const monthlyBallotRequests = oneLevelRollUpFlatMap()
+const monthlyBallotRequests = oneLevelRollUpFlatMap(ncUpdates, "ballot_req_dt_month", "af")
 ```
 
 Let's plot it as a histogram!
@@ -384,9 +384,10 @@ The output should resemble the following video, but you may add any options that
 ```js
 // Convert and plot the histogram here
 //there is moew above you're supposed to have.
-"blue", strokeWidth: 3,}),
-Plot.rectY(
-  monthlyBallotRequests,
+Plot.plot({
+  marks: [
+    Plot.rectY(
+      monthlyBallotRequests,
   {
     x: "ballot_req_dt_month",
     y: "af",
@@ -508,7 +509,7 @@ Assign it to a constant variable named `ncMailBallots`.
 <!-- JS codeblock to attach nc_absentee_mail_2024_no_dropped_dupes.csv -->
 
 ```js
-const ncMailBallots = FileAttatchment("./../data/nc-voter/nc_absentee_mail_2024.csv").csv({typed:true})
+const ncMailBallots = FileAttachment("./../data/nc-voters/nc_absentee_mail_2024.csv").csv({typed:true})
 ```
 
 ### 2. Map date objects to OG data
@@ -520,12 +521,12 @@ Assign it to a constant variable named `ncMailBallotsUpdated`.
 <!-- JS codeblock to map date objects as ncMailBallotsUpdated-->
 
 ```js
-const ncMailBallotsUpdated = mapDateObject(ncMailBallotsUpdated, "ballot_req_dt");
+const ncMailBallotsUpdated = mapDateObject(ncMailBallots, "ballot_req_dt");
 ```
 
 Output `ncMailBallotsUpdated` below:
 
-```javascript
+```js
 ncMailBallotsUpdated
 ```
 
@@ -543,7 +544,7 @@ Time to use your `threeLevelRollUpFlatMap` function!
 
 #### Output of afByWeekRaceStatus
 
-```javascript
+```js
 // Convert and render data
 afByWeekRaceStatus
 ```
