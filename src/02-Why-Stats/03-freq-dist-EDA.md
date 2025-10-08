@@ -272,19 +272,19 @@ The output should resemble something like the example image below:
 
 Now use your `threeLevelRollUpFlatMap()` here.
 
-```javascript
+```js
 /**
  * Convert and use `threeLevelRollUpFlatMap()`
  * and assign to a const `afByWeekRaceStatus`.
 **/
-
+const afByWeekRaceStatus = threeLevelRollUpFlatMap (ncVotersAll, "ballot_req_week", "race", "ballot_rtn_status")
 ```
 
 <p class="codeblock-caption">
   Interactive output of ballot's per week:
 </p>
 
-```javascript
+```js
 // Convert to output afByWeekRaceStatus
 afByWeekRaceStatus
 ```
