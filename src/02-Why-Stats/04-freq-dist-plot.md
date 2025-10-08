@@ -545,6 +545,11 @@ Time to use your `threeLevelRollUpFlatMap` function!
 #### Output of afByWeekRaceStatus
 
 ```js
+const afByWeekRaceStatus = threeLevelRollUpFlatMap(ncMailBallotsUpdated, "ballot_req_dt_week", "race", "ballot_rtn_status", "af")
+```
+
+
+```js
 // Convert and render data
 afByWeekRaceStatus
 ```
@@ -590,12 +595,12 @@ const getRejectedBallots = (d) => {
 ```
 
 ```js
-const reducerProps = ["WHITE", "BLACK OR AFRICAN AMERICA"]
+const reducerProps = ["WHITE", "BLACK OR AFRICAN AMERICAN"]
 const reducerFuncs = [
   {type: "ACCEPTED", func: getAcceptedBallots },
   {type: "REJECTED", func: getRejectedBallots },
 ]
-const uniqeListOfWeekNumbers = getUniquePropListBy(afByWeekRaceStatus, "ballot_req_dt_week")
+const uniqueListOfWeekNumbers = getUniquePropListBy(afByWeekRaceStatus, "ballot_req_dt_week")
 ```
 
 ```js
@@ -616,14 +621,14 @@ for (const weekNumber of uniqueListOfWeekNumbers) {
       afByWeekRaceStatus, 
       (d) => {
         if (d.ballot_req_dt_week == weekNumber && d.race == reducerProps[rProperty]) {
-          const xTotalsToSum = reducerFucns[testorObj]["func"](d)
-          return xTotalToSum
+          const xTotalsToSum = reducerFuncs[testorObj]["func"](d)
+          return xTotalsToSum
         }
       }
     )
-    atGroupedPercResults.push({
+    afGroupedPercResults.push({
       ballot_req_dt_week: weekNumber,
-      race: reducedProps[rProperty],
+      race: reducerProps[rProperty],
       ballot_rtn_status: reducerFuncs[testorObj]["type"],
       af: summedUpLevel,
       percentage: summedUpLevel / weekAF,
@@ -631,6 +636,10 @@ for (const weekNumber of uniqueListOfWeekNumbers) {
     }
   }
 }
+```
+
+```js
+afGroupedPercResults
 ```
 
 
@@ -649,6 +658,19 @@ In a codeblock, use JS' `.filter()` on your grouped results to create a two cons
 
 #### BLACK or AFRICAN AMERICAN, rejected, weeks 0-45
 ![black race rejected ballot grouping output](./../assets/images/2-why-stats/04-plot-filtering-groups-white-rej.png)
+
+```js
+const resultsRejectedWhite = afGroupedPercResults.filter(group => group.race == "WHITE" && group.ballot_rtn_status == "REJECTED")
+const resultsRejectedBlack = afGroupedPercResults.filter(group => group.race != "WHITE" && group.ballot_rtn_status == "REJECTED")
+```
+
+```js
+resultsRejectedWhite
+```
+
+```js
+resultsRejectedBlack
+```
 
 ### 6. Plot the line chart with Plot.plot()
 
