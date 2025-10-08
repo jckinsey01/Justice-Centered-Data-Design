@@ -6,7 +6,7 @@ import {utcParse,utcFormat} from "d3-time-format";
 // Import your custom modules here: getUniquePropListBy, oneLevelRollUpFlatMap, twoLevelRollUpFlatMap, threeLevelRollUpFlatMap, sumUpWithReducerTests
 import {getUniquePropListBy} from "./utils/utils.js";
 import {mapDateObject} from "./utils/utils.js";
-import { parseDate} from "./utils/utils.js";
+import {parseDate} from "./utils/utils.js";
 import {formatWeekNumber} from "./utils/utils.js";
 import {threeLevelRollUpFlatMap} from  "./utils/utils.js";
 ```

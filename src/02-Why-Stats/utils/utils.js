@@ -12,6 +12,11 @@
 import {ascending,descending,sum,rollup,rollups} from "d3-array";
 import {utcParse,utcFormat} from "d3-time-format";
 
+const parseDate = utcParse("%m/%d/%Y");
+const formatWeekNumber = utcFormat ("%W")
+const formatMonthNumber = utcFormat ("%m")
+const formatYearNumber = utcFormat("%Y")
+
 // Add Your Date Parsers & Formatters Below
 
 
@@ -236,10 +241,7 @@ export const sumUpWithReducerTests = (reducerFunctions, reducerProperties, data,
  *     third level.
 **/
 
-//E4
-export const parseDate = utcParse("%m/%d/%Y")
-export const formatWeekNumber = utcFormat("%U")
-  import { rollups } from 'd3';
+//E3
 
 export const threeLevelRollUpFlatMap = (data, level1Key, level2Key, level3Key, countKey) => {
   // 1. Rollups on 3 nested levels
