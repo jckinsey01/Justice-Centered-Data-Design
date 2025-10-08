@@ -222,7 +222,20 @@ Ok, last exercise! Complete the following steps to create a new array that only 
 
 **Question**: What oddities do you notice about the outcome? Below, explain what you suggest is happenning, and what you would do to resolve the issue with isolating a better list of hyphenated words.
 
-ENTER_YOUR_RESPONSE_HERE
+It seems liked, if I did this right, the list can only be generated with the "unclean" version. I tried to use the different arrays made but nothing worked. It seems like the best way to do it woulld be to make a "vonnSplit" thats also been cleaned? Maybe between E4 and E5 I could nake a new array thats clean, utelizing E2's process.
+
+```js
+let hyphenatedWords = [];
+for (const word of vonnSplit) {
+  if (word.includes('-')) {
+    hyphenatedWords.push(word);
+  }
+}
+```
+
+```js
+hyphenatedWords
+```
 
 ## Submission
 
