@@ -500,7 +500,6 @@ sex
 **Goal**: Make a `for` loop that considers each item in the `sex` list. Log "Person is male" ***if*** the person is `"m"`, "Person is female" ***if*** the person is `"f"`, "Person is intersex" ***if*** the person is `"i"`, and "Person's sex is not known" ***if*** `"unknown"`.
 
 ```js
-let sex = ["f", "m", "f", "m", "i"];
 let sexListMFI = [];
 for (const person_sex of sex) {
     if (person_sex == 'm'){
@@ -527,7 +526,7 @@ Make sure to check if the items are logged correctly.
 
 Since this is your first big use of `.map()`, I'll give you the skeleton of the expression:
 
-```javascript
+```js
 // Skeleton of .map()
 let sexFullTerm = sex.map(
   (sexItem) => {
@@ -535,8 +534,20 @@ let sexFullTerm = sex.map(
     // which will include conditional statements.
     // Also, be sure to use `return` statements
     // where appropriate!
+    if (sexItem == 'm') {
+      return 'male';
+    } else if (sexItem == 'f') {
+      return 'female';
+    } else if (sexItem == 'i') {
+      return 'intersex';
+    }
+      return 'unknown';
   }
 )
+```
+
+```js
+sexFullTerm
 ```
 
 ## Submission
