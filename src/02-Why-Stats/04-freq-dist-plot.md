@@ -228,9 +228,9 @@ const afByWeekAndRaceSorted = afByWeekAndRace.sort(
   Output of the sorted data: <code>afByWeekAndRaceSorted</code>.
 </p>
 
-```javascript
+```js
 // Convert and output rendered data to page
-afByWeekAndRacwSorted
+afByWeekAndRaceSorted
 ```
 
 ## E5. Bar Chart: Plotting Absolute Frequencies
