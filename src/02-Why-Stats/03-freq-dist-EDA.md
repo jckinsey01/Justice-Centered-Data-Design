@@ -277,7 +277,7 @@ Now use your `threeLevelRollUpFlatMap()` here.
  * Convert and use `threeLevelRollUpFlatMap()`
  * and assign to a const `afByWeekRaceStatus`.
 **/
-const afByWeekRaceStatus = threeLevelRollUpFlatMap (ncVotersAll, "ballot_req_dt_week", "race", "ballot_rtn_status", "af")
+const afByWeekRaceStatus = threeLevelRollUpFlatMap (ncVotersAllUpdated, "ballot_req_dt_week", "race", "ballot_rtn_status", "af")
 ```
 
 <p class="codeblock-caption">
@@ -337,7 +337,7 @@ const getRejectedBallots = (d) => {
 ```
 
 ```js
-const reducerProps = ["WHITE", "BLACK OR AFRICAN AMERICAN"]
+const reducerProps = ["WHITE", "BLACK or AFRICAN AMERICAN"]
 const reducerFuncs = [
   {type: "ACCEPTED", func: getAcceptedBallots },
   {type: "REJECTED", func: getRejectedBallots },
@@ -378,6 +378,10 @@ for (const weekNumber of uniqueListOfWeekNumbers) {
     }
   }
 }
+```
+
+```js
+uniqueListOfWeekNumbers
 ```
 
 ```js
@@ -537,6 +541,8 @@ Tabulate the data here. Use `Inputs.table()`'s `format` option to express the pe
 
 ```js
 // Insert your table here
+// const percentFormatter = d3.format(".2%")
+
 Inputs.table(afGroupedPercResults, {
   // The array of objects,
     // enter each customizing property in this object
@@ -550,18 +556,19 @@ Inputs.table(afGroupedPercResults, {
       race: 50,
     },
      header: {
+      ballot_req_dt_week: "Ballot Request Week",
       race: "Voters Race",
       ballot_rtn_status: "Ballot Status",
-      af: "Number Accepted/Rejected"
-
+      af: "Number Accepted/Rejected",
+      
+    },
+    format: {
+      percentage: (x) => d3.format(".2%")(x),
     },
   })
 ```
 
-```javascript
-// Convert and tabulate afGroupedPercResults here
 
-```
 
 ## Question: Why not percentage of all ballots per week?
 
