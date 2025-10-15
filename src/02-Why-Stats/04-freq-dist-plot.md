@@ -326,7 +326,12 @@ Plot.plot({
 
   marks: [
     Plot.ruleY([0]),
+    Plot.axisX({label: null, lineWidth: 8, marginBottom: 40}),
 
+    Plot.barY(afByRace, {
+      x: "race",
+      y: "af",}
+    ),
   ]
 })
 ```
@@ -595,7 +600,7 @@ const getRejectedBallots = (d) => {
 ```
 
 ```js
-const reducerProps = ["WHITE", "BLACK OR AFRICAN AMERICAN"]
+const reducerProps = ["WHITE", "BLACK or AFRICAN AMERICAN"]
 const reducerFuncs = [
   {type: "ACCEPTED", func: getAcceptedBallots },
   {type: "REJECTED", func: getRejectedBallots },
@@ -683,18 +688,61 @@ Remember, you should be plotting the weeks along the x-axis and the percentage v
 - In `marks`, add week 45 information:
     - `Plot.dot()` to denote the last day to request a ballot: Oct 29th.
     - `Plot.tip()` to add an anchored tip to the dot for week 45. I'll provide you with the options to make your tip work:
-    ```javascript
+    
+    ```js
     // 1. Custom Date() object for the last day to request
     const parseDate = utcParse("%m/%d/%y")
     const formatWeekNumber = d3.utcFormat("%W")
     // 2. Created as a list of objects in case I want to add more specific dates/tips
     const pollsWeekOfLastDay = [ { lastWeek: Number (formatWeekNumber( parseDate("10/29/24") ) ), }]
     // 3. The mark to includes in your Plot's `marks` array option
+    ```
+
+```js
+Plot.plot({
+  grid: true,
+  marginRight: 0,
+  marginBottom: 60,
+  marginTop: 60,
+  label: null,
+  tip: true,
+  color: {legend: true},
+  x: {label: "Week", padding: 0},
+  y: {label: "Percentage", padding: 0},
+
+  marks: [
+    Plot.ruleY([0]),
+    Plot.axisX({label: null, lineWidth: 8, marginBottom: 40}),
+
+    Plot.line(resultsRejectedWhite, {
+      x: "ballot_req_dt_week",
+      y: "percentage",
+      stroke:"red",}
+    ),
+    Plot.line(resultsRejectedBlack, {
+      x: "ballot_req_dt_week",
+      y: "percentage",
+      stroke: "black"}
+    ),
+    
     Plot.tip(
       [`Last day\nto req\nOct 29th`],
       {x: pollsWeekOfLastDay["lastWeek"], y: 0, dy: -5, dx: 277, anchor: "bottom"}
     ),
-    ```
+    Plot.dot([`Last day\nto req\nOct 29th`],
+        {
+          x: pollsWeekOfLastDay["lastWeek"],
+          y: 0, 
+          dy: 0, 
+          dx: 277, 
+          anchor: "bottom", 
+          stroke: "black", 
+          weight: 10,
+          r: 5,
+    })
+  ]
+})
+```
 
 Do the best you can to recreate what you see in the video example.
 
