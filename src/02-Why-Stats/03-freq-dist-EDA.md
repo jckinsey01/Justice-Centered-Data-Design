@@ -449,7 +449,7 @@ for (const weekNumber of uniqueListOfWeekNumbers) {
   Output of afGroupedPercResults.
 </p>
 
-```javascript
+```js
 afGroupedPercResults
 ```
 
@@ -466,6 +466,34 @@ Tabulate the data here. Use `Inputs.table()`'s `format` option to express the pe
 
 ```javascript
 // Convert and tabulate afGroupedPercResults here
+```
+
+```js
+// Insert your table here
+Inputs.table(afGroupedPercResults, {
+  // The array of objects,
+    // enter each customizing property in this object
+   rows: 25,
+   align: {
+    race: "center",
+    ballot_rtn_status: "center",
+    af: "center",
+   },
+   width: {
+      race: 50,
+    },
+     header: {
+      race: "Voters Race",
+      ballot_rtn_status: "Ballot Status",
+      af: "Number Accepted/Rejected"
+
+    },
+  })
+```
+
+```javascript
+// Convert and tabulate afGroupedPercResults here
+
 ```
 
 ## Question: Why not percentage of all ballots per week?
