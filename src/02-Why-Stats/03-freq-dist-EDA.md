@@ -586,7 +586,7 @@ I noticed that it seems like white voters vote earlier than black voters, so may
 
 After tabulating the data, as well as sorting and reviewing it, what difficulties are you experiencing as you review so much data in a table?
 
-YOUR_RESPONSE_HERE
+It's very annoying to scroll and see patterns.
 
 ## Conclusion
 
