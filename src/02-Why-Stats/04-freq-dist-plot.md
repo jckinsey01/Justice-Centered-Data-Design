@@ -790,7 +790,7 @@ Use the structure provided below to briefly discuss each type of graph: line, ba
 
 Describe an example of how the voter data could be manipulated to give an unethical presence to inaccurate conclusions. What specifically about the data work and any visualizing or reporting deliverables woudl make them unethical? Feel free to draw upon any of our past critical data readings, including this week's short addition about interpretive levels and the importance of context.
 
-YOUR_RESPONSE_HERE
+I feel like the data coukd use rounded numerical data to exagerate the closeness of the data points between black and white voters. Additionally, if you only use data from early on or towards the very end of the collection date, it will look more similar to each other and not capture the huge differences in the middle part.
 
 ## Submission
 
