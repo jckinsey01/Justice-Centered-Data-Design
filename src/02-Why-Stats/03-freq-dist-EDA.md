@@ -5,6 +5,10 @@
 import {utcParse,utcFormat} from "d3-time-format";
 // Import your custom modules here: getUniquePropListBy, oneLevelRollUpFlatMap, twoLevelRollUpFlatMap, threeLevelRollUpFlatMap, sumUpWithReducerTests
 import {getUniquePropListBy} from "./utils/utils.js";
+import {mapDateObject} from "./utils/utils.js";
+import {parseDate} from "./utils/utils.js";
+import {formatWeekNumber} from "./utils/utils.js";
+import {threeLevelRollUpFlatMap} from  "./utils/utils.js";
 ```
 
 ## Start Your GH Workflow
@@ -101,15 +105,15 @@ Let's attach and render the dataset CSV file called `nc_absentee_mail_2024_no_dr
 
 Let's assign the attached data to a constant variable called `ncVotersAll`.
 
-```javascript
-// Attach with this codeblock
+```js
+const ncVotersAll = FileAttachment("./../data/nc-voters/nc_absentee_mail_2024.csv").csv({typed:true})
 ```
 
 <p class="codeblock-caption">
   Output of full dataset
 </p>
 
-```javascript
+```js
 ncVotersAll
 ```
 
@@ -150,8 +154,9 @@ Ok, the code below has already been added to the `utils.js` file, so be sure to 
   I highly recommend opening a <strong>two-column layout in VS Code</strong>, so you can see both files as you work on each part of this exercise.
 </p>
 
+
 <!-- Example export codeblock -->
-```javascript
+<!-- ```js -->
 /** ======================================
  * This code is in the utils.js file
  * for this section of the book.
@@ -172,55 +177,60 @@ Ok, the code below has already been added to the `utils.js` file, so be sure to 
  *    the property name for the date field, whose
  *    value is a string `dateString`.
 **/
-export const mapDateObject = (data, dateString) => {
+//export const mapDateObject = (data, dateString) => {
 
-  // 2. Use .map() to iterate the `data` and create new date props
-  const updatedData = data.map((ballot) => {
+//   // 2. Use .map() to iterate the `data` and create new date props
+//   const updatedData = data.map((ballot) => {
 
-    // 3. Create dynamic keys to use for new properties
-    const objField = dateString+"_obj"
-    const weekField = dateString+"_week"
+//     // 3. Create dynamic keys to use for new properties
+//     const objField = dateString+"_obj"
+//     const weekField = dateString+"_week"
 
-    // 4. Skip any null request dates
-    if (ballot[dateString] != null) {
-      /**
-       * 5. Assign a date object to a new
-       *    property for each `ballot`
-       *    called `objField`.
-      **/
-     ballot[objField] = parseDate(ballot[dateField])
-    }
-    return ballot
-  })
+//     // 4. Skip any null request dates
+//     if (ballot[dateString] != null) {
+//       /**
+//        * 5. Assign a date object to a new
+//        *    property for each `ballot`
+//        *    called `objField`.
+//       **/
+//      ballot[objField] = parseDate(ballot[dateField])
+//      ballot[weekField] = Number(formatWeekNumber(ballot[objField]))
+//     }
+//     return ballot
+//   })
 
-  /**
-   * 5. Sort the data by week numbers in ascending order.
-   * I also recommend sorting your data
-   * in ascending order before returning
-   * it back, since you normally want your
-   * data to mirror the concept recorded.
-   * In this case, weeks are temporal data
-   * in a chronological sequence: 1, 2, 3, ...
-  **/
-  const sortedData = updatedData.sort(
-    // Works like an accessor function to pass two objects to compare
-    (a, b) => {
-      // Uses D3's ascending() function to sort by the given properties
-      return ascending(a.ballot_req_dt_week, b.ballot_req_dt_week)
-    }
-  )
+//   /**
+//    * 5. Sort the data by week numbers in ascending order.
+//    * I also recommend sorting your data
+//    * in ascending order before returning
+//    * it back, since you normally want your
+//    * data to mirror the concept recorded.
+//    * In this case, weeks are temporal data
+//    * in a chronological sequence: 1, 2, 3, ...
+//   **/
+//   const sortedData = updatedData.sort(
+//     // Works like an accessor function to pass two objects to compare
+//     (a, b) => {
+//       // Uses D3's ascending() function to sort by the given properties
+//       return ascending(a.ballot_req_dt_week, b.ballot_req_dt_week)
+//     }
+//   )
 
-  // 6. Return the populated and sorted array of objects
-  return sortedData
+//   // 6. Return the populated and sorted array of objects
+//   return sortedData
 
-}
-```
+// }
+// ```
 
 Import the `mapDateObject` function in the `import` statement at the top of this page, so you can start to develop and test it as you use it. I have already imported the `getUniquePropListBy()` function from `utils.js`, so you only need to add a comma after it—like you do in Arrays.
 
 <p class="tip">
   Console logs are your friend for testing your code! Just be sure to erase them, when you don't need them anymore.
 </p>
+
+```js
+const ncVotersAllUpdated = mapDateObject(ncVotersAll, "ballot_req_dt")
+```
 
 ```javascript
 // Convert so you can test your imported function as you develop it
@@ -233,7 +243,7 @@ Ok, now convert the below codeblock to an exectuable one, so you can view the ou
   Interactive output of <code>ncVotersAllUpdated</code> with new date properties:
 </p>
 
-```javascript
+```js
 // Convert to output
 ncVotersAllUpdated
 ```
@@ -262,19 +272,19 @@ The output should resemble something like the example image below:
 
 Now use your `threeLevelRollUpFlatMap()` here.
 
-```javascript
+```js
 /**
  * Convert and use `threeLevelRollUpFlatMap()`
  * and assign to a const `afByWeekRaceStatus`.
 **/
-
+const afByWeekRaceStatus = threeLevelRollUpFlatMap (ncVotersAllUpdated, "ballot_req_dt_week", "race", "ballot_rtn_status", "af")
 ```
 
 <p class="codeblock-caption">
   Interactive output of ballot's per week:
 </p>
 
-```javascript
+```js
 // Convert to output afByWeekRaceStatus
 afByWeekRaceStatus
 ```
@@ -305,7 +315,78 @@ The result should resemble the following output:
 // Now, do the same for what will become "REJECTED" statuses
 
 ```
+```js
+const getAcceptedBallots = (d) => {
+  if (d.ballot_rtn_status != null && d.ballot_rtn_status.startsWith("ACCEPTED") == true) {
+    return d.af
+  }
+  else {
+    return 0
+  }
+}
 
+const getRejectedBallots = (d) => {
+  if (d.ballot_rtn_status != null && d.ballot_rtn_status.startsWith("ACCEPTED") == false) {
+    return d.af
+  }
+  else {
+    return 0
+  }
+}
+
+```
+
+```js
+const reducerProps = ["WHITE", "BLACK or AFRICAN AMERICAN"]
+const reducerFuncs = [
+  {type: "ACCEPTED", func: getAcceptedBallots },
+  {type: "REJECTED", func: getRejectedBallots },
+]
+const uniqueListOfWeekNumbers = getUniquePropListBy(afByWeekRaceStatus, "ballot_req_dt_week")
+```
+
+```js
+const afGroupedPercResults = []
+for (const weekNumber of uniqueListOfWeekNumbers) {
+  for (const testorObj in reducerFuncs) {
+    for (const rProperty in reducerProps) {
+  
+   const weekAF = d3.sum(
+      afByWeekRaceStatus,
+      (d) => {
+        if (d.ballot_rtn_status != null && d.ballot_req_dt_week == weekNumber && d.race == reducerProps[rProperty]) {
+          return d.af
+        }
+      }
+    )
+    const summedUpLevel = d3.sum(
+      afByWeekRaceStatus, 
+      (d) => {
+        if (d.ballot_req_dt_week == weekNumber && d.race == reducerProps[rProperty]) {
+          const xTotalsToSum = reducerFuncs[testorObj]["func"](d)
+          return xTotalsToSum
+        }
+      }
+    )
+    afGroupedPercResults.push({
+      ballot_req_dt_week: weekNumber,
+      race: reducerProps[rProperty],
+      ballot_rtn_status: reducerFuncs[testorObj]["type"],
+      af: summedUpLevel,
+      percentage: summedUpLevel / weekAF,
+    })
+    }
+  }
+}
+```
+
+```js
+uniqueListOfWeekNumbers
+```
+
+```js
+afGroupedPercResults
+```
 ### 4.2 Write your reducer properties and objectify your reducer functions
 
 <!-- Reducer Properties & Objectify reducerFuncs -->
@@ -439,7 +520,7 @@ for (const weekNumber of uniqueListOfWeekNumbers) {
   Output of afGroupedPercResults.
 </p>
 
-```javascript
+```js
 afGroupedPercResults
 ```
 
@@ -458,23 +539,54 @@ Tabulate the data here. Use `Inputs.table()`'s `format` option to express the pe
 // Convert and tabulate afGroupedPercResults here
 ```
 
+```js
+// Insert your table here
+// const percentFormatter = d3.format(".2%")
+
+Inputs.table(afGroupedPercResults, {
+  // The array of objects,
+    // enter each customizing property in this object
+   rows: 25,
+   align: {
+    race: "center",
+    ballot_rtn_status: "center",
+    af: "center",
+   },
+   width: {
+      race: 50,
+    },
+     header: {
+      ballot_req_dt_week: "Ballot Request Week",
+      race: "Voters Race",
+      ballot_rtn_status: "Ballot Status",
+      af: "Number Accepted/Rejected",
+      
+    },
+    format: {
+      percentage: (x) => d3.format(".2%")(x),
+    },
+  })
+```
+
+
+
 ## Question: Why not percentage of all ballots per week?
 
 Why did I direct you to sum the total for the week > race group, rather than calculate the percentage based on the grand sum total for the entire week across all included races? How are those percentages' respective *interpretive levels* different?
 
-YOUR_RESPONSE_HERE
+I think you're asking why did we break the sums down by race rather than just total them all together per week, this would be because we should be able to separate by race to see differences in accepted versus rejected ballots. There are differences that are valuable to see, and if we combine them we loose the ability to draw conclusions and see problems that we could potentially fix and result in a more equitable voting processes.
 
 ## Question: New insights?
 
 After tabulating the data, as well as sorting and reviewing it, what new angles and questions come to mind?
 
-YOUR_RESPONSE_HERE
+I noticed that it seems like white voters vote earlier than black voters, so maybe there could be some kind of communications or PR improvement to encorage blakc voters to vote earlier, and hopefully improve the odds for their ballots  counted, so they have time to redo them if needed.
 
 ## Question: Difficulties?
 
 After tabulating the data, as well as sorting and reviewing it, what difficulties are you experiencing as you review so much data in a table?
 
-YOUR_RESPONSE_HERE
+It's very annoying to scroll and see patterns.
 
 ## Conclusion
 
