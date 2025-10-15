@@ -580,7 +580,7 @@ I think you're asking why did we break the sums down by race rather than just to
 
 After tabulating the data, as well as sorting and reviewing it, what new angles and questions come to mind?
 
-I noticed that it seems like white voters vote earlier than black voters, so maybe there could be some kind of communications or PR improvement to encorage blakc voters to vote earlier, and hopefully improve the odds for
+I noticed that it seems like white voters vote earlier than black voters, so maybe there could be some kind of communications or PR improvement to encorage blakc voters to vote earlier, and hopefully improve the odds for their ballots  counted, so they have time to redo them if needed.
 
 ## Question: Difficulties?
 
