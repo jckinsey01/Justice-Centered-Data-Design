@@ -756,7 +756,7 @@ Do the best you can to recreate what you see in the video example.
 
 After working with the NC voter dataset, describe any new insights, new questions or angles, or issues that you might consider sharing with your team at Protect Democracy.
 
-YOUR_RESPONSE_HERE
+The number of black voters whose ballots were rejected is concerningly high. I think that as time goes on, the difference between white and black ballots being rejected increased, then that gap closes at the end. I think this could be because the voters were given time to correct ballots? Maybe having systems in place for voters to get things correct the first time would help.
 
 ### 2. Types of graphs
 
@@ -764,27 +764,27 @@ Use the structure provided below to briefly discuss each type of graph: line, ba
 
 #### Line
 
-- **Appropriate level of data**:
-- **Strengths**:
-- **Weaknesses**:
+- **Appropriate level of data**: Single data points that shpw a certain level, chronolgical data, progression. soemties comparing two kinds of data at the same chronological point.
+- **Strengths**: simple, chronological data, one of two types of data at a time. 
+- **Weaknesses**: Can only show two ish categories of data at a time, any more gets confusing. 
 
 #### Bar
 
-- **Appropriate level of data**:
-- **Strengths**:
-- **Weaknesses**:
+- **Appropriate level of data**: Multiple categories of data, compared between one other type of data
+- **Strengths**: good for comparison of multiple data points. 
+- **Weaknesses**: Not very good for chronological changes or changes in a category of data, better for simple comparison across one other type of data
 
 #### Pie
 
-- **Appropriate level of data**:
-- **Strengths**:
-- **Weaknesses**:
+- **Appropriate level of data**: proportionality
+- **Strengths**: very good for showing percents and comparisons between categories
+- **Weaknesses**: not good for anything that isn't totalling to 100%, no chronology, 
 
 #### Histogram
 
-- **Appropriate level of data**:
-- **Strengths**:
-- **Weaknesses**:
+- **Appropriate level of data**: Can show one type of data across a changing varible (time, tempt, condition, etc)
+- **Strengths**: Good for showing changes in one type of data. (GDP acorss years, plant growth rate over time).
+- **Weaknesses**: Not good for comparison between multiple types of data (tree versus shrub growth rates over time).
 
 ### 3. On making un/ethical arguments with data
 
