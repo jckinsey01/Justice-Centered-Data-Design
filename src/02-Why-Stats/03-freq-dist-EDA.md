@@ -277,7 +277,7 @@ Now use your `threeLevelRollUpFlatMap()` here.
  * Convert and use `threeLevelRollUpFlatMap()`
  * and assign to a const `afByWeekRaceStatus`.
 **/
-const afByWeekRaceStatus = threeLevelRollUpFlatMap (ncVotersAll, "ballot_req_week", "race", "ballot_rtn_status")
+const afByWeekRaceStatus = threeLevelRollUpFlatMap (ncVotersAll, "ballot_req_dt_week", "race", "ballot_rtn_status", "af")
 ```
 
 <p class="codeblock-caption">
@@ -315,7 +315,74 @@ The result should resemble the following output:
 // Now, do the same for what will become "REJECTED" statuses
 
 ```
+```js
+const getAcceptedBallots = (d) => {
+  if (d.ballot_rtn_status != null && d.ballot_rtn_status.startsWith("ACCEPTED") == true) {
+    return d.af
+  }
+  else {
+    return 0
+  }
+}
 
+const getRejectedBallots = (d) => {
+  if (d.ballot_rtn_status != null && d.ballot_rtn_status.startsWith("ACCEPTED") == false) {
+    return d.af
+  }
+  else {
+    return 0
+  }
+}
+
+```
+
+```js
+const reducerProps = ["WHITE", "BLACK OR AFRICAN AMERICAN"]
+const reducerFuncs = [
+  {type: "ACCEPTED", func: getAcceptedBallots },
+  {type: "REJECTED", func: getRejectedBallots },
+]
+const uniqueListOfWeekNumbers = getUniquePropListBy(afByWeekRaceStatus, "ballot_req_dt_week")
+```
+
+```js
+const afGroupedPercResults = []
+for (const weekNumber of uniqueListOfWeekNumbers) {
+  for (const testorObj in reducerFuncs) {
+    for (const rProperty in reducerProps) {
+  
+   const weekAF = d3.sum(
+      afByWeekRaceStatus,
+      (d) => {
+        if (d.ballot_rtn_status != null && d.ballot_req_dt_week == weekNumber && d.race == reducerProps[rProperty]) {
+          return d.af
+        }
+      }
+    )
+    const summedUpLevel = d3.sum(
+      afByWeekRaceStatus, 
+      (d) => {
+        if (d.ballot_req_dt_week == weekNumber && d.race == reducerProps[rProperty]) {
+          const xTotalsToSum = reducerFuncs[testorObj]["func"](d)
+          return xTotalsToSum
+        }
+      }
+    )
+    afGroupedPercResults.push({
+      ballot_req_dt_week: weekNumber,
+      race: reducerProps[rProperty],
+      ballot_rtn_status: reducerFuncs[testorObj]["type"],
+      af: summedUpLevel,
+      percentage: summedUpLevel / weekAF,
+    })
+    }
+  }
+}
+```
+
+```js
+afGroupedPercResults
+```
 ### 4.2 Write your reducer properties and objectify your reducer functions
 
 <!-- Reducer Properties & Objectify reducerFuncs -->
