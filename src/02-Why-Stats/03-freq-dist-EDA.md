@@ -574,13 +574,13 @@ Inputs.table(afGroupedPercResults, {
 
 Why did I direct you to sum the total for the week > race group, rather than calculate the percentage based on the grand sum total for the entire week across all included races? How are those percentages' respective *interpretive levels* different?
 
-YOUR_RESPONSE_HERE
+I think you're asking why did we break the sums down by race rather than just total them all together per week, this would be because we should be able to separate by race to see differences in accepted versus rejected ballots. There are differences that are valuable to see, and if we combine them we loose the ability to draw conclusions and see problems that we could potentially fix and result in a more equitable voting processes.
 
 ## Question: New insights?
 
 After tabulating the data, as well as sorting and reviewing it, what new angles and questions come to mind?
 
-YOUR_RESPONSE_HERE
+I noticed that it seems like white voters 
 
 ## Question: Difficulties?
 
