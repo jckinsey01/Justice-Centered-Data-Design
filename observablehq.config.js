@@ -98,9 +98,9 @@ export default {
           path: "/02-Why-Stats/05-central-tend"
         },
         // {
-        //   name: "2.6 Correlation & Linear Regression",
-        //   path: "/02-Why-Stats/06-correlation-and-regression--teachers_copy"
-        // },
+        // name: "2.6 Correlation & Linear Regression",
+        // path: "/02-Why-Stats/06-correlation-and-regression--teachers_copy"
+        //  },
       ]
     },
     // HELP PAGES
