@@ -110,7 +110,7 @@ export default {
       pages: [
         {
           name: "Weighting Words with TF-IDF",
-          path:"/03-Textual-Analysis/01-wrighting-words"
+          path:"/03-Textual-Analysis/01-weighting-words",
         },
       ]
     },
