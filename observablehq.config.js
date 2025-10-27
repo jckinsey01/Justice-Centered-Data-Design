@@ -153,7 +153,17 @@ export default {
     //   ]
     // },
   ],
-
+// 3.Textual Analysis
+    {
+      name: "3. Textual Analysis",
+      open: false,
+      pages: [
+        {
+          name: "Weighting Words with TF-IDF",
+          path:"/03-Textual-Analysis/01-wrighting-words"
+        },
+      ]
+    },
   // Content to add to the head of the page, e.g. for a favicon:
   head: '<link rel="icon" href="observable.png" type="image/png" sizes="32x32">\n<link rel="stylesheet" href="/assets/css/hljs.css">',
   footer: '<script src="/assets/js/toggle-section.js"></script>\n<script src="/assets/js/video-playback.js"></script>',
