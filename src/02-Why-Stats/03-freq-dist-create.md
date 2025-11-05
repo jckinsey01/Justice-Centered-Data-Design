@@ -59,8 +59,9 @@ Again, we are going to continue working with the 2024 NC absentee voter CSV file
 2. Assign the data to a variable named `ncVotersAll`.
 3. Render it to the page in a separate codeblock.
 
-```javascript
+```js
 // FileAttachment() code here assigned to `ncVotersAll`
+const ncVotersAll = FileAttachment("./../data/nc-voters/absentee_2024_aggregated.csv").csv({typed:true})
 ```
 
 Output the data as an interactive array of objects below:
@@ -69,8 +70,7 @@ Output the data as an interactive array of objects below:
   Interactive output of full data set in <code>ncVotersAll</code>
 </p>
 
-```javascript
-// Convert to render on page
+```js
 ncVotersAll
 ```
 
@@ -132,15 +132,34 @@ Ok, now I want you to put all of those pieces together in your own `Inputs.table
 
 ![Example output table](./../assets/images/2-why-stats/02-why-stats-ex-table.png)
 
-```javascript
+```js
 // Insert your table here
-Inputs.table(
-  // The array of objects
-  ncVotersAll,
-  {
+Inputs.table(ncVotersAll, {
+  // The array of objects,
     // enter each customizing property in this object
-  }
-)
+ columns: [
+      "id_num", "county_desc", "race", "gender", "age",
+      "ballot_request_party", "ballot_rtn_status"
+    ],
+   rows: 25,
+   width: {
+      id_num: 20,
+      county_desc: 90,
+      gender: 40,
+      age: 20,
+      race: 90,
+      ballot_request_party: 90,
+    },
+     header: {
+      id_num: "ID",
+      county_desc: "County",
+      race: "Race",
+      gender: "Gender",
+      age: "Age",
+      ballot_request_party: "Ballot Party",
+      ballot_rtn_status: "Ballot Status",
+    },
+  })
 ```
 
 ## E3. Case Scenario & Data Provenance
@@ -149,7 +168,7 @@ To be honest, we should never really drop that much data into a table. Nobody wa
 
 Also, as we move through this section of the book, we need to cultivate a critical awareness about how numbers, calculation, and other data types are never removed from the context of their collection and use. For this reason, we will be learning about data and statistical work with a wholistic socially just approach in mind. To help us accomplish this aim, we will be using a running scenario that involves working with the 2024 North Carolina general election data for absentee ballots. We will specifically take on the following scenario and role as a communicator working at a nonprofit called **Protect Democracy**:
 
-> You work for a nonpartisan, nonprofit called **Protect Democracy** (PD) as an analyst and writer. One of PD's missions is to ensure free an fair elections. They want to run a series of stories about mail-in voting, and they recalled how, during the 2020 election, NC had racial disparity with regards to whose ballots were being rejected ([See 538 story](https://fivethirtyeight.com/features/north-carolina-is-already-rejecting-black-voters-mail-in-ballots-more-often-than-white-voters/)). Consequently, they want you to look into any potential rejected ballot issues that might have occurred for mail-in voters in NC during the 2024 election.
+> You work for a nonpartisan, nonprofit called **Protect Democracy** (PD) as an analyst and writer. One of PD's missions is to ensure free and fair elections. They want to run a series of stories about mail-in voting, and they recalled how, during the 2020 election, NC had racial disparity with regards to whose ballots were being rejected ([See 538 story](https://fivethirtyeight.com/features/north-carolina-is-already-rejecting-black-voters-mail-in-ballots-more-often-than-white-voters/)). Consequently, they want you to look into any potential rejected ballot issues that might have occurred for mail-in voters in NC during the 2024 election.
 
 ### About the NC absentee voter ballot data, and its provenance
 
@@ -167,15 +186,20 @@ Finally, inside of the `/src/data/nc-voters/provenance/` folder, you can also re
 
 **Question**: After reviewing the above information, how would a SJ ethic inform your intiial understanding of the data, its collected values, and its context? List out in other information or questions that you sense might be missing about the data.
 
-ENTER_YOUR_RESPONSE_HERE
+My first thoughts while reading the background info are that these forms would be extremely difficult for people who have a disability and little to no assistance, people for whome english is not a first lnaguage, people who may not have recieved consistent or sufficient education. I kept reading things and thinking how many things could go wrong in the process that would result in the ballot being declared invalid, and how it would be easier to just go to a physical site and do it, which defeats the point of the mail in ballot option. I think that information like demographicsa (race, gender, etc) should not be visible to those making decisions about what ballots to toss. That way, its slightly more fair in that there's nothing to subconsciously encourage someone to toss it other than what actually determines if it needs tossed.
 
 **Question**: Based on the case scenario as a communicator at Protect Democracy, and a SJ ethic in mind, what questions, i.e., angles, do you think may be helpful to meet the needs of your situation. Discuss any columns/fields that you are surprised about or spark any curiosities, and create a list of questions they spark in you.
 
-ENTER_YOUR_RESPONSE_HERE
+* How many ballots rejected are sent in by differently abled voters?
+* How many ballots rejected are sent in by minorities?
+* How many ballots rejected are sent in by those with a complicated or unstable housing situation?
+* How many ballots rejected included someone assiting the voter, versus how many ballots accepted had someone assiting the voter?
+
+I'm interested in the voter assistance, as I wonder how that impacts the likliehood of a ballot being accepted. I'm also interested in the hosuing and address aspects for the same reason.  
 
 **Question**: What can you understand about the `ballot_rtn_status` column? In other words, what types of values are possible?
 
-ENTER_YOUR_RESPONSE_HERE
+That I'm still confused about and couldn't see any pdfs that explained that, I probably just missed it. I think that you can get "accepted" or things that imply rejection, like soiled, returned after deadline, info incomplete, etc.
 
 ## 2.3.4 Calculate Absolute Grouped Frequencies with RFS Method
 
@@ -254,7 +278,7 @@ Ok, so we want to create a desired ***grouping*** of `ballot_rtn_status` > `race
     2. Add second param: the computation to perform on the rolled up data. In this case, we want the absolute frequency of ballot statuses per race.
 
 <!-- Example rollups() -->
-```javascript
+```js
 /**
  * .rollups()
  * @return: a flattened version of InternMap:
@@ -273,7 +297,7 @@ const afStatusByRace = d3.rollups(
 </p>
 
 <!-- afStatusByRace output -->
-```javascript
+```js
 // Convert to render on page
 afStatusByRace
 ```
@@ -358,25 +382,31 @@ In this second video, I explain the code inside of the custom `oneLevelRollUpFla
 
 Ok, now that you have watched the above video about the `oneLevelRollUpFlatMap()` function. Import it from the `./utils/utils.js` file in the codeblock below.
 
-```javascript
+```js
+import {oneLevelRollUpFlatMap} from "./utils/utils.js"
 // Convert me and import oneLevelRollUpFlatMap()
-import {PUT_ANY_FUNCTIONS_IN_HERE, SEPARATE_MORE_THAN_ONE, WITH_COMMAS} from "enter/path/here.js"
+// import {PUT_ANY_FUNCTIONS_IN_HERE, SEPARATE_MORE_THAN_ONE, WITH_COMMAS} from "enter/path/here.js"
 
 ```
 
 Now, see if it worked!
 
-Use the imported function in the below codeblock to rollup and flatten `ncVotersAll` by (1) `race` and (2) `ballot_rtn_status`.
+Use the imported function in the below codeblock to rollup and flatten `ncVotersAll` by (1) `race'
 
-```javascript
+```js
+let byRace = oneLevelRollUpFlatMap(
+  ncVotersAll,
+  "race",
+  "count",
+)
 // Convert and use `oneLevelRollUpFlatMap()` on `ncVotersAll`
-const byRaceAndBallotStatus = ADD_FUNCTION_HERE
+//const byRaceAndBallotStatus = ADD_FUNCTION_HERE
 ```
 
-Ok, let's see if `byRaceAndBallotStatus` shows up here by rendering it to the page.
+Ok, let's see if `byRace` shows up here by rendering it to the page.
 
-```javascript
-byRaceAndBallotStatus
+```js
+byRace
 ```
 
 <div class="error-caption">
@@ -392,13 +422,18 @@ byRaceAndBallotStatus
 
 Ok, now you try this custom function with a different variable from the dataset.
 
-```javascript
+```js
 // Convert and create your own one-level grouping
+let byGender = oneLevelRollUpFlatMap(
+  ncVotersAll,
+  "gender",
+  "count",
+)
+```
+```js
+byGender
 ```
 
-```javascript
-// Convert and output your variable here
-```
 
 ## E6. Import and use `twoLevelRollUpFlatMap()` on `ncVotersAll`
 
@@ -416,12 +451,23 @@ In this video, follow along as I explain the code for the `twoLevelRollUpFlatMap
 
 After you have watched the above video, it is time for you to try this custom function with the two example variables used in the our running angle.
 
-```javascript
-// Convert and create your own two-level grouping
+```js
+import {twoLevelRollUpFlatMap} from "./utils/utils.js"
 ```
 
-```javascript
+```js
+// Convert and create your own two-level grouping
+let byRaceAndStatus = twoLevelRollUpFlatMap(
+  ncVotersAll,
+  "race",
+  "ballot_rtn_status",
+  "af",
+)
+```
+
+```js
 // Convert and output your variable here
+byRaceAndStatus
 ```
 
 ## 2.3.7 RFS 3. Sum it up with D3's .sum()!
@@ -502,26 +548,62 @@ Follow along with me in the video below to learn how to create a custom function
 </video>
 
 <!-- Your Reducer Functions -->
-```javascript
+```js
 // Convert and create your own reducer functions akin to "ACCEPTED" vs "REJECTED"
+// E6: byRaceAndStatus
+
+const getAcceptedBallots = (d) => {
+  if (d.ballot_rtn_status != null && d.ballot_rtn_status.startsWith ("ACCEPTED") == true){
+    return d.af
+  }
+  else {
+    return 0
+  }
+}
+```
+<!-- Call and use sumUpWithReducerTests() -->
+```js
+
+const getRejectedBallots = (d) => {
+if (d.ballot_rtn_status != null && d.
+  ballot_rtn_status.startsWith("ACCEPTED") == false) {
+    return d.af
+  }
+  else {
+    return 0
+  }
+}
+```
+```js
+import {sumUpWithReducerTests} from "./utils/utils.js"
 ```
 
-<!-- Call and use sumUpWithReducerTests() -->
-```javascript
-/**
+<!-- /**
  * Convert and use sumUpWithReducerTests().
  * Be sure to review the utils.js file, so you
  * can see the parameters needed for the function.
-**/
-```
+**/ -->
 
 <p class="codeblock-caption">
   Interactive output of using sumUpWithReducerTests().
 </p>
 
+```js
+ const ballotResults = sumUpWithReducerTests(
+[{type: "Accepted Ballot", func: getAcceptedBallots, }, {type: "Rejected Ballot", func: getRejectedBallots, },
+],
+["WHITE", "ASIAN"], 
+byRaceAndStatus,
+"race",
+"ballot_rtn_status",
+"count",
+ )
+ ```
+
 <!-- Your Reducer Functions -->
-```javascript
+```js
 // Convert and output your summed up data
+ballotResults
 ```
 
 ## E8. Tabulated absolute frequencies of rejected ballots per race
@@ -533,15 +615,35 @@ Ok, tabulate the rolledup and summed-up results with `Inputs.table()`. Be sure t
 3. Sort the table based on what you deem the most helpful combo of column and ascending vs. descending.
 4. Be sure to provide a short response to the question about your table design.
 
-```javascript
-// Enter your table here
+```js
+// Insert your table here
+Inputs.table(ballotResults, {
+  // The array of objects,
+    // enter each customizing property in this object
+   rows: 25,
+   align: {
+    race: "center",
+    ballot_rtn_status: "center",
+    count: "center",
+   },
+   width: {
+      race: 50,
+      ballot_request_status: 20,
+    },
+     header: {
+      race: "Voters Race",
+      ballot_rtn_status: "Ballot Status",
+      count: "Number Accepted/Rejected"
+
+    },
+  })
 ```
 
 ### Question: Explain your table design choices.
 
 **Q**: What *insights* and *new questions* did you garner from it that you hope to also illustrate/provide for your audience?
 
-ENTER_YOUR_RESPONSE_HERE
+This table allows me to see the results of my previous exercise. I can see each of the two races I selected to see and the accepted versus rejected number. I used align and width to adjust how my data was displayed. I think I'd like to know how to display it with columns, one for accpted one for rejected, with having one row per race. It would save space on the page.
 
 ## Conclusion
 

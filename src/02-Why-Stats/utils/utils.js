@@ -104,13 +104,14 @@ export const oneLevelRollUpFlatMap = (data, level1Key, countKey) => {
   )
 
   // 2. Flatten back to array of objects
+ // level1Key = name of column
   const flatTotals = colTotals.flatMap((e) => {
     return {
       [level1Key]: e[0],
       [countKey]: e[1]
     }
   })
-
+return flatLevels
   // 3. Return the sorted totals
   return flatTotals
 }
@@ -140,7 +141,7 @@ export const twoLevelRollUpFlatMap = (data, level1Key, level2Key, countKey) => {
 
     // 2.1 Assign level 1 key
     let l1KeyValue = l1Elem[0]
-
+    //copy paste the stuff for a third level
     // 2.2 Flatten 2nd grouped level
     const flatLevels = l1Elem[1].flatMap((l2Elem) => {
 
@@ -148,7 +149,7 @@ export const twoLevelRollUpFlatMap = (data, level1Key, level2Key, countKey) => {
       let l2KeyValue = l2Elem[0]
 
       // l2Elem[1].flatMap()
-
+      //add a flat map for level 3
       // 2.2.2 Return fully populated object
       return {
         [level1Key]: l1KeyValue,
