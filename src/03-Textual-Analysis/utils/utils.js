@@ -7,14 +7,7 @@
 * @return
 * - uniqList: Array. List of unique data values.
 **/
-export const getUniquePropListBy = (arr, key) => {
-const uniqueObjs = [...new Map(arr.map(item => [item[key], item])).values()]
-const uniqList = []
-for (const o of uniqueObjs) {
-uniqList.push(o[key])
-}
-return uniqList
-}
+
 import nlp from "compromise"
 import {utcParse,utcFormat} from "d3-time-format"
 import {html} from "htl"
