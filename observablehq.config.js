@@ -146,6 +146,17 @@ path: "/03-Textual-Analysis/02-processing"
       path:"/03-Textual-Analysis/03-ner"
      } ]
     },
+    // 4. GEO SPATIAL
+    {
+      name: "4. Geo-Spatial",
+      open: false,
+      pages: [
+        {
+          name: "4.1 Geo Data Basics",
+          path: "/04-Geo/01-geo-basics"
+        },
+      ]
+    },
     // HELP PAGES
     {
       name: "Help",
