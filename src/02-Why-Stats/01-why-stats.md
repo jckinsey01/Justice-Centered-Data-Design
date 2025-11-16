@@ -44,26 +44,31 @@ With these goals for the texts in mind, please respond to the questions herein a
 **Question**: Use the space below to define the provided key terms.
 
 - According to the SFSJ authors, what are the main difference between **data** and **information**?:
-- **Variable**:
-- **Constant**:
-- **Conceptualization**:
-- **Operationalization**:
-- **Nominal level of data**:
-- **Ordinal level of data**:
-- **Interval level of data**:
-- **Ratio level of data**:
+- **Variable**: A characteristic that varies.
+- **Constant**: A characteristic that is the same for the people or objects that are the focus of the research.
+- **Conceptualization**: The process used in choosing and clearly defining the variables included in a study.
+- **Operationalization**: The method use to measure the variable. 
+- **Nominal level of data**: Classifying observations into mutually exclusive categories with no inherent order or rank (i.e "Are you employeed?")
+- **Ordinal level of data**: Classifying observations that are mutually exclusive and have an inherent order to them (i.e ranking education level)
+- **Interval level of data**: Classifying observations that are mutually exclusive, have an inherent order and have equal spacing between categories.
+- **Ratio level of data**: Classifying observations that are mutually exclusive, have an inherent order, have equal spacing between categories and reflect the absolute magnitude.
 
 ### 1.2. On positivism
 
 **Question**: Describe how the S4SJ authors define and use the term **positivism**. How do they suggest it is different from **post-positivism**? According to the authors, why are both paradigms important to social workers? Now, how do you imagine it is important for TPC professionals?
 
-Your_response_here
+Positivism is a view that social behavior can be studied and understood in a rational, objective and scientifc manner. Post-positivism is the idea that the "client" is an important source of knowledge, and that the rigidity of scientific methods interfere with how social work can reflect the complexity of human relationships and interventions. Both schools of thought are important to social work because the collection and presentation of data helps to encourage social change and social justice. This is similar to TPC, because we need data to see an overall picture of an issue ad discern the needs of users or audiences, but we also need to account for users/audiences experiences and take them into account when creating media. 
 
 ### 1.3. On the "*structural perspective*"
 
 **Question**: Name and define the different parts of the ***structural perspective***. Be sure to cover the parts related practice and research.
 
-Your_response_here
+"Structural perspective" is about how social workers can help improve the relationships between people and their social environments. Within that idea, there are two perspectives, neoliber ideology (cappitalism is good, social issues are caused by individuals, trickle down economics, pespective of mainstream social work) and the marxist ideology (society is a struggle between competing interest groups, seeks to alleivate negative effects this explotative social system, and transform the social conditions and structures that cause these issues).The five practice methods of the structural perspective are:
+1. Defence of the client (social workers defend clients against the system and provide them with knowledge)
+2. Collectivism (connecting clients with support networks)
+3. Materialization (help clients see connection between their struggle and their mental health, and assure them that often their struggles are not soley their fault or their fault at all.)
+4. Increasing client power in the worker-client relationship (being clear and straight with a client, allow them to be in control of their own problems and solutions)
+5. Enhancing client power through personal change (help client avoid self-destructive behavior or thoughts through empowing them to enact change in their lives by helpng them make the connection between their thoughs, behaviors and social context)
 
 ## 2. Questions about "The history of empiricism"
 
@@ -71,7 +76,7 @@ Your_response_here
 
 **Question**: According to the SFSJ authors, what is ***feminist empiricism***? And, what issues does it recognize as important to recognize and remedy? Be sure to discuss why it emphasizes the importance of critically reflecting on aspects of the ***context*** of empirical work.
 
-Your_response_here
+"Feminist empiricism" accepts most of the tennets of traditional empiricism (importance of hypothesis, only knowledge based on direct observation through senses is scientific fact) but it also includes the idea that science is not value free and the scientific method is not sufficient to screen out any outside influence. This ideology seeks to remedy the impact of intellectual individualism, and see knowledge building as a social and communitu dependent activity. It also criticises the neutrality of the knower, and believes that detracting all neutrality and values is impossible, so this should be acknowedged. Reflecting on context is important in feminist empiricism because it allows scientists to acknowledge the importance of context in thir research and it's impact on them.
 
 ## 3. Questions About "The future of ethics and social justice" in TPC
 
@@ -79,33 +84,35 @@ Your_response_here
 
 **Question**: Name and define some of what you deem as the main different parts of the ***socially just ethic***. Be sure to discuss how it is different from other ethical approaches.
 
-Your_response_here
+Socially just ethics are different from most other ethical approaches because they value reorienting collective actions to center groups that are in the most need.
+
+The biggest parts of SJE to me seemed to be acknowedgement of different issues and topics, those being cultural imperialism, marginalization, intersectional oppression, reciprocity and reflexivity, and collective action.
 
 ### 3.2. Defining critical issues
 
 **Question**: Briefly define each of the critical issues discussed: Cultural Imperialism, Marginalization, and Intersectional Oppression.
 
-**Cultural Imperialism**: Your_response_here
+**Cultural Imperialism**: Denotes the violent stealing of land, exploitation of labor, and exctraction of resources for the benefit of colonizers.
 
-**Marginalization**: Your_response_here
+**Marginalization**: the exclusion of particular groups from meaningful partitication in society, forcing them to live life on the margins.
 
-**Intersectional Oppression**: Your_response_here
+**Intersectional Oppression**: When racism, sexism, and other forms of bigoty all come together to impact how a person is marginalized in society.
 
 ### 3.3. Defining the 3Ps to help us recognize oppression
 
 **Question**: Define each of the 3Ps below. Explain how each helps us recognize oppression.
 
-**Power**: Your_response_here
+**Power**: a structural concern about oppressive social organizations of power. It helps us recognize oppression by showing how power is organized across 4 domains, structural, disciplinary , interpersonal and hegemonic.
 
-**Privilege**: Your_response_here
+**Privilege**: Builds on positionality, focuses on what contraints and affordances a person may experience due to their position in society. 
 
-**Positionality**: Your_response_here
+**Positionality**: Helps people reflect on their identity in the context of structural issues. Aspects of identity are intersectional.
 
 ### 3.4. Why an SJ ethic?
 
 **Question**: Why do Lindgren, Gerdes, and Lawrence position a "SJ ethic" as essential to the future of TPC? What types of problems does it help TPC tackle?
 
-Your_response_here
+An SJ ethic helps us to understand how people experience society, and in turn this can help TPC professionals understand their audience and avoid creating media that can perpetuate ideologies that can further harm to already marginalized groups.
 
 ## 4. Questions About "Statistical Genre Analysis" (SGA)
 
@@ -113,7 +120,7 @@ Your_response_here
 
 **Question**: How do Graham et al define and discuss what constitutes "big" data? How does their definition differ from what you have heard before you read this article?
 
-Your_response_here
+They state that big data is big, but that bigness depends on the field, and the scale of bigness changes as technology changes. Previously, all I knew about big data was that it was extrmely large collections of data.
 
 ### 4.2. On SGA
 
@@ -124,19 +131,19 @@ Your_response_here
 3. What questions SGA data and methods enable TPC to ask, and
 4. What methods it uses to do so.
 
-Your_response_here
+SGA addresses issues of drawing conclusions about larger data sets without losing the validity of rhetorical analysis. The data the authors use to demonstrate its potential are a 150k pages long trasncript from ODAC meetings between 2009 and 2012. It allows TPC to utelize humanistic and qualitative studies using statistical methods.
 
 ## 5. "Science is a social endeavor."
 
 **Question**: Discuss what this statement means to you. Then, discuss any connections, confusion, and/or questions that you recognize with a SJ ethic and structural perspective?
 
-Your_response_here
+To me, this statement reminds me of the history of empiricism and feminist empiricism. They state that it could be said that people do bot hold knowledge, communities do. Additionally, they state that its impossible to remove yourself from your context and be a 100% objective observer.
 
 ## 6. Translating the structural approach into TPC / Other Humanities Fields
 
 **Question**: After considering all of these texts -- their exigencies, propositions, and methods -- translate Mullaly's broader definition of the *structural approach* and Moreau's *practice methods* in social work into the domain of TPC or humanist domain of work by putting them into conversation with Lindgren, Gerdes, and Lawrence's SJ ethic and Graham et al's statistical genre analysis. In other words, begin to develop your own structural perspective and set of practices that translates Moreau's 5 practices. Finally, add one new practice approach specific to TPC/your domain.
 
-Your_response_here
+My interests in technical communication is science communication. As such, I find the discussion of Mullays definition of the structural approach very interesting, as I can see similarities between it and science communication. Much like in science communication, the structuralist approach sees the social worker (or author) avoid jargon and inform their audience of resources and connects them to a larger community. The discussion of Big data in Lindgren et al is also similar to the idea of societal systems that are in place and, according to mainatream social work, unsurmountable and all encomapsing in size and breadth. Both the marxist point of view and Lindgren et al's later discussion sees that the reality is that Bid data and cpitalist society are not without flaw or end. 
 
 ## Submission
 
