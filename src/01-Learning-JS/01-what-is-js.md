@@ -185,11 +185,13 @@ There are other conventions and rules, but we don't need to belabor them right n
       <source src="../assets/vids/01-js/01-web-console.mp4" type="video/mp4" />
     </video>
 
-```javascript
-// Convert this into a multiline comment
-// that includes your name, date,
-// and top 3 favorite foods, where
-// each set of info should be on a new line.
+```js
+/* Josephine Kinsey
+* August 26th 2025
+* Pasta
+* Saag Paneer
+*Cookies
+*/
 
 /**
  * 1. Replace the value in-between the
@@ -205,29 +207,29 @@ There are other conventions and rules, but we don't need to belabor them right n
  *    that will make sure each favorite food is
  *    logged to the correct place in the console.
 **/
-___ _faveFood1_ = "Enter_#1_Favorite_Food_Here"
-___ _faveFood2_ = "Enter_#2_Favorite_Food_Here"
+let pasta = "Pasta"
+let saagPaneer = "Saag Paneer"
 
 console.log(
   "Ok, so y'all know that my #1 favorite food is ",
-  _faveFood1_,
-  ", and my second favorite food is ", _faveFood2_
+  pasta ,
+  ", and my second favorite food is ", saagPaneer
 )
 
-if (_faveFood2_.length > 0) {
+if (saagPaneer.length > 0) {
   // Redeclare _faveFood1_ within this scope only
-  ___ _faveFood1_ = "Enter__NEW__#1_Favorite_Food_Here"
+ let pasta = "cookies"
 
   console.log(
     "jk! ",
-    _faveFood1_,
+    pasta,
     " is actually my #1 favorite food."
   )
 }
 
 console.log(
   "Ok. Don't get mad, but my #1 favorite is ",
-  _faveFood1_, " actually."
+  pasta, " actually."
 )
 ```
 
